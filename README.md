@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 <img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
 </div>
@@ -26,3 +27,6 @@ Recruiter access is restricted to the exact addresses listed in `config/recruite
 ## Candidate Assessment Invitations
 
 Recruiters create a role-bound assessment invitation for the candidate. Links expire 24 hours after creation and can claim one assessment session; that session can be resumed until its assessment deadline. The link is a bearer credential, so share it only with the intended candidate. Candidate OTP verification has been removed. Data Engineering invitations remain unavailable until the third topic question bank is added.
+=======
+# technicalInterviewAgent
+>>>>>>> 1210bedf9e4636854d0ddaa7ae097fa084a4b436
