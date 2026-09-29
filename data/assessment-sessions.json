@@ -1,0 +1,435 @@
+[
+  {
+    "sessionId": "assessment-1790240386033-5fsxr5",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-24T08:59:46.033Z",
+    "deadlineAt": "2026-09-24T09:29:46.033Z",
+    "submittedAt": "2026-09-24T09:05:14.103Z"
+  },
+  {
+    "sessionId": "assessment-1790331653412-6rmw5d",
+    "candidateEmail": "saib15513@gmail.com",
+    "startedAt": "2026-09-25T10:20:53.412Z",
+    "deadlineAt": "2026-09-25T10:50:53.412Z"
+  },
+  {
+    "sessionId": "assessment-1790331696198-d94o56",
+    "candidateEmail": "test@gmail.com",
+    "startedAt": "2026-09-25T10:21:36.198Z",
+    "deadlineAt": "2026-09-25T10:51:36.198Z"
+  },
+  {
+    "sessionId": "assessment-1790331877454-5d0xuh",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:24:37.454Z",
+    "deadlineAt": "2026-09-25T10:54:37.454Z"
+  },
+  {
+    "sessionId": "assessment-1790331877462-klycdm",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:24:37.462Z",
+    "deadlineAt": "2026-09-25T10:54:37.462Z"
+  },
+  {
+    "sessionId": "assessment-1790331923119-erwjw2",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:25:23.119Z",
+    "deadlineAt": "2026-09-25T10:55:23.119Z"
+  },
+  {
+    "sessionId": "assessment-1790331935400-uwiu3o",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:25:35.400Z",
+    "deadlineAt": "2026-09-25T10:55:35.400Z"
+  },
+  {
+    "sessionId": "assessment-1790331944634-0m3du5",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:25:44.634Z",
+    "deadlineAt": "2026-09-25T10:55:44.634Z"
+  },
+  {
+    "sessionId": "assessment-1790331949980-a17byh",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:25:49.980Z",
+    "deadlineAt": "2026-09-25T10:55:49.980Z"
+  },
+  {
+    "sessionId": "assessment-1790331954894-19uact",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:25:54.894Z",
+    "deadlineAt": "2026-09-25T10:55:54.894Z"
+  },
+  {
+    "sessionId": "assessment-1790331958774-fn162c",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:25:58.774Z",
+    "deadlineAt": "2026-09-25T10:55:58.774Z"
+  },
+  {
+    "sessionId": "assessment-1790331966357-q3wog7",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:26:06.357Z",
+    "deadlineAt": "2026-09-25T10:56:06.357Z"
+  },
+  {
+    "sessionId": "assessment-1790332104821-runtxf",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:28:24.821Z",
+    "deadlineAt": "2026-09-25T10:58:24.821Z"
+  },
+  {
+    "sessionId": "assessment-1790332230899-yok9vj",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:30:30.899Z",
+    "deadlineAt": "2026-09-25T11:00:30.899Z"
+  },
+  {
+    "sessionId": "assessment-1790332232765-usmj01",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:30:32.765Z",
+    "deadlineAt": "2026-09-25T11:00:32.765Z"
+  },
+  {
+    "sessionId": "assessment-1790332279641-4az775",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:31:19.641Z",
+    "deadlineAt": "2026-09-25T11:01:19.641Z"
+  },
+  {
+    "sessionId": "assessment-1790332288975-i9kuai",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:31:28.975Z",
+    "deadlineAt": "2026-09-25T11:01:28.975Z"
+  },
+  {
+    "sessionId": "assessment-1790332327255-7jai6q",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:32:07.255Z",
+    "deadlineAt": "2026-09-25T11:02:07.255Z"
+  },
+  {
+    "sessionId": "assessment-1790332335203-9kbfep",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:32:15.203Z",
+    "deadlineAt": "2026-09-25T11:02:15.203Z"
+  },
+  {
+    "sessionId": "assessment-1790332459826-ol38xp",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:34:19.826Z",
+    "deadlineAt": "2026-09-25T11:04:19.826Z"
+  },
+  {
+    "sessionId": "assessment-1790332477597-cpik56",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:34:37.597Z",
+    "deadlineAt": "2026-09-25T11:04:37.597Z"
+  },
+  {
+    "sessionId": "assessment-1790332481280-kcir6j",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:34:41.280Z",
+    "deadlineAt": "2026-09-25T11:04:41.280Z"
+  },
+  {
+    "sessionId": "assessment-1790332515045-z2nawe",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:35:15.045Z",
+    "deadlineAt": "2026-09-25T11:05:15.045Z"
+  },
+  {
+    "sessionId": "assessment-1790332562359-urv2om",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:36:02.359Z",
+    "deadlineAt": "2026-09-25T11:06:02.359Z"
+  },
+  {
+    "sessionId": "assessment-1790332588283-0gr4v6",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:36:28.283Z",
+    "deadlineAt": "2026-09-25T11:06:28.283Z"
+  },
+  {
+    "sessionId": "assessment-1790332596597-9rz2gw",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:36:36.597Z",
+    "deadlineAt": "2026-09-25T11:06:36.597Z"
+  },
+  {
+    "sessionId": "assessment-1790332603744-mv7sn7",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T10:36:43.744Z",
+    "deadlineAt": "2026-09-25T11:06:43.744Z"
+  },
+  {
+    "sessionId": "assessment-1790340743008-njdtl8",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T12:52:23.008Z",
+    "deadlineAt": "2026-09-25T13:22:23.008Z"
+  },
+  {
+    "sessionId": "assessment-1790340794808-gai5uu",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-25T12:53:14.808Z",
+    "deadlineAt": "2026-09-25T13:23:14.808Z"
+  },
+  {
+    "sessionId": "assessment-1790572423335-sxpg79",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-28T05:13:43.335Z",
+    "deadlineAt": "2026-09-28T05:43:43.335Z"
+  },
+  {
+    "sessionId": "assessment-1790572444378-gm1hay",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "startedAt": "2026-09-28T05:14:04.378Z",
+    "deadlineAt": "2026-09-28T05:44:04.378Z"
+  },
+  {
+    "sessionId": "assessment-1790572534781-o1bfzt",
+    "candidateEmail": "qa.e2e.1790572534540@example.test",
+    "startedAt": "2026-09-28T05:15:34.781Z",
+    "deadlineAt": "2026-09-28T05:45:34.781Z",
+    "submittedAt": "2026-09-28T05:15:38.382Z"
+  },
+  {
+    "sessionId": "assessment-1790573539260-txj7er",
+    "candidateEmail": "qa.sample.7a3b87ee6f364c1e97864c5a6e81398e@example.test",
+    "startedAt": "2026-09-28T05:32:19.260Z",
+    "deadlineAt": "2026-09-28T06:02:19.260Z",
+    "questionIds": [
+      "mdm-1",
+      "mdm-10",
+      "mdm-3",
+      "mdm-4",
+      "mdm-7",
+      "mdm-9",
+      "sql-hcp-5",
+      "sql-hcp-4",
+      "sql-hcp-6",
+      "sql-hcp-2",
+      "sql-hcp-1",
+      "sql-hcp-3",
+      "py-2",
+      "py-4",
+      "py-1",
+      "py-6",
+      "py-3",
+      "py-5"
+    ]
+  },
+  {
+    "sessionId": "assessment-1790573547974-xzhm7e",
+    "candidateEmail": "qa.random.1790573547722@example.test",
+    "startedAt": "2026-09-28T05:32:27.974Z",
+    "deadlineAt": "2026-09-28T06:02:27.974Z",
+    "questionIds": [
+      "mdm-10",
+      "mdm-4",
+      "mdm-1",
+      "mdm-5",
+      "mdm-8",
+      "mdm-7",
+      "sql-hcp-2",
+      "sql-hcp-7",
+      "sql-hcp-3",
+      "sql-hcp-4",
+      "sql-hcp-5",
+      "sql-hcp-8",
+      "py-3",
+      "py-6",
+      "py-5",
+      "py-1",
+      "py-4",
+      "py-2"
+    ]
+  },
+  {
+    "sessionId": "assessment-1790574058932-zo5hz7",
+    "candidateEmail": "kiran.varma@talent-engin.com",
+    "startedAt": "2026-09-28T05:40:58.932Z",
+    "deadlineAt": "2026-09-28T06:10:58.932Z",
+    "questionIds": [
+      "mdm-9",
+      "mdm-7",
+      "mdm-1",
+      "mdm-5",
+      "mdm-10",
+      "mdm-2",
+      "sql-hcp-2",
+      "sql-hcp-7",
+      "sql-hcp-1",
+      "sql-hcp-5",
+      "sql-hcp-4",
+      "sql-hcp-8",
+      "py-1",
+      "py-6",
+      "py-4",
+      "py-2",
+      "py-3",
+      "py-5"
+    ],
+    "submittedAt": "2026-09-28T05:42:03.214Z"
+  },
+  {
+    "sessionId": "assessment-1790574249077-s6kpdr",
+    "candidateEmail": "kiran.varma@talent-engin.com",
+    "startedAt": "2026-09-28T05:44:09.077Z",
+    "deadlineAt": "2026-09-28T06:14:09.077Z",
+    "questionIds": [
+      "mdm-1",
+      "mdm-6",
+      "mdm-3",
+      "mdm-4",
+      "mdm-2",
+      "mdm-5",
+      "sql-hcp-3",
+      "sql-hcp-6",
+      "sql-hcp-8",
+      "sql-hcp-4",
+      "sql-hcp-7",
+      "sql-hcp-5",
+      "py-2",
+      "py-6",
+      "py-4",
+      "py-3",
+      "py-1",
+      "py-5"
+    ]
+  },
+  {
+    "sessionId": "assessment-1790577006953-l1otg8",
+    "candidateEmail": "intro.ui.1790576802497@example.test",
+    "startedAt": "2026-09-28T06:30:06.953Z",
+    "deadlineAt": "2026-09-28T07:00:06.953Z",
+    "questionIds": [
+      "mdm-3",
+      "mdm-5",
+      "mdm-6",
+      "mdm-4",
+      "mdm-2",
+      "mdm-8",
+      "sql-hcp-2",
+      "sql-hcp-8",
+      "sql-hcp-5",
+      "sql-hcp-6",
+      "sql-hcp-3",
+      "sql-hcp-7",
+      "py-4",
+      "py-1",
+      "py-5",
+      "py-3",
+      "py-6",
+      "py-2"
+    ],
+    "submittedAt": "2026-09-28T06:30:18.683Z"
+  },
+  {
+    "sessionId": "assessment-1790577895720-5az9bd",
+    "candidateEmail": "sai@test.com",
+    "startedAt": "2026-09-28T06:44:55.720Z",
+    "deadlineAt": "2026-09-28T07:14:55.720Z",
+    "questionIds": [
+      "mdm-4",
+      "mdm-9",
+      "mdm-6",
+      "mdm-3",
+      "mdm-1",
+      "mdm-2",
+      "sql-hcp-1",
+      "sql-hcp-3",
+      "sql-hcp-6",
+      "sql-hcp-7",
+      "sql-hcp-8",
+      "sql-hcp-4",
+      "py-6",
+      "py-3",
+      "py-5",
+      "py-2",
+      "py-1",
+      "py-4"
+    ]
+  },
+  {
+    "sessionId": "assessment-1790591584296-nga36s",
+    "candidateEmail": "sai@test2.com",
+    "startedAt": "2026-09-28T10:33:04.296Z",
+    "deadlineAt": "2026-09-28T11:03:04.296Z",
+    "questionIds": [
+      "mdm-3",
+      "mdm-7",
+      "mdm-1",
+      "mdm-4",
+      "mdm-10",
+      "mdm-9",
+      "sql-hcp-4",
+      "sql-hcp-3",
+      "sql-hcp-6",
+      "sql-hcp-2",
+      "sql-hcp-8",
+      "sql-hcp-1",
+      "py-3",
+      "py-6",
+      "py-2",
+      "py-1",
+      "py-5",
+      "py-4"
+    ]
+  },
+  {
+    "sessionId": "assessment-1790591894722-4febhr",
+    "candidateEmail": "sai@test.com",
+    "startedAt": "2026-09-28T10:38:14.722Z",
+    "deadlineAt": "2026-09-28T11:08:14.722Z",
+    "questionIds": [
+      "mdm-5",
+      "mdm-6",
+      "mdm-10",
+      "mdm-2",
+      "mdm-8",
+      "mdm-1",
+      "sql-hcp-5",
+      "sql-hcp-1",
+      "sql-hcp-7",
+      "sql-hcp-6",
+      "sql-hcp-3",
+      "sql-hcp-2",
+      "py-5",
+      "py-3",
+      "py-4",
+      "py-1",
+      "py-6",
+      "py-2"
+    ],
+    "submittedAt": "2026-09-28T10:45:18.960Z"
+  },
+  {
+    "sessionId": "assessment-1790597642678-ns9056",
+    "candidateEmail": "test@test.com",
+    "inviteId": "af9573f5-f780-4918-8ad8-f6e191671bc7",
+    "track": "data_stewardship",
+    "startedAt": "2026-09-28T12:14:02.678Z",
+    "deadlineAt": "2026-09-28T12:44:02.678Z",
+    "questionIds": [
+      "mdm-6",
+      "mdm-5",
+      "mdm-4",
+      "mdm-10",
+      "mdm-2",
+      "mdm-9",
+      "sql-hcp-3",
+      "sql-hcp-7",
+      "sql-hcp-6",
+      "sql-hcp-1",
+      "sql-hcp-8",
+      "sql-hcp-5",
+      "py-1",
+      "py-2",
+      "py-4",
+      "py-6",
+      "py-5",
+      "py-3"
+    ]
+  }
+]

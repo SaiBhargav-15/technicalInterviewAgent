@@ -1,0 +1,1536 @@
+[
+  {
+    "id": "cand-8960",
+    "candidateName": "Sai",
+    "candidateEmail": "sai@test.com",
+    "role": "L1 Data & MDM Engineer",
+    "submittedAt": "2026-09-28T10:45:18.960Z",
+    "overallScore": 0,
+    "recommendation": "No Hire",
+    "scores": {
+      "mdm": 0,
+      "sql": 0,
+      "python": 0,
+      "edgeCases": 0,
+      "codeQuality": 0,
+      "integrity": 100
+    },
+    "proctoring": {
+      "integrityScore": 100,
+      "violationsCount": 0,
+      "tabSwitchCount": 0,
+      "pasteCount": 0,
+      "faceLossCount": 0,
+      "events": [
+        {
+          "id": "evt-1790591768741",
+          "timestamp": "2026-09-28T10:36:08.741Z",
+          "type": "INFO",
+          "message": "New candidate assessment session initialized."
+        }
+      ]
+    },
+    "submissions": [
+      {
+        "questionId": "mdm-5",
+        "title": "Match vs Survivorship – Important Distinction",
+        "category": "Survivorship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-6",
+        "title": "Real-World Stewardship Scenario – Match + Merge + Survivorship",
+        "category": "Data Stewardship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-10",
+        "title": "Pharma Product Survivorship - Regulatory Status and Provenance",
+        "category": "Survivorship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-2",
+        "title": "Match – Potential Duplicate With Conflicting Data",
+        "category": "Match & Merge",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-8",
+        "title": "Pharma HCO Hierarchy - Parent System and Care Site",
+        "category": "Data Stewardship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-1",
+        "title": "Stewardship – Data Quality Investigation",
+        "category": "Data Stewardship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-5",
+        "title": "Currently Active HCP Affiliations",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-1",
+        "title": "HCP and HCO Affiliation Details",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-7",
+        "title": "Latest Affiliation for Each HCP",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-6",
+        "title": "HCO With Highest Number of HCPs",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-3",
+        "title": "HCP Affiliation Count",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-2",
+        "title": "HCPs Without Affiliations",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-5",
+        "title": "Fuzzy Match Jaccard Similarity for Legal Entity Names",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-3",
+        "title": "Customer Payload Conflict Merging with Survivorship Rules",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-4",
+        "title": "Address Postal Code Standardization (ZIP & ZIP+4)",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-1",
+        "title": "Customer Contact String Normalization (Phone & Email)",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-6",
+        "title": "Data Quality Attribute Completeness Score Calculator",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-2",
+        "title": "Record Deduplication & Missing Attribute Imputation",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      }
+    ],
+    "aiSummary": "Candidate Sai completed the L1 MDM, SQL, and Python evaluation with an overall score of 0/100. Demonstrates competencies in data stewardship, survivorship partitioning, and fuzzy matching pipelines with 100% session integrity.",
+    "strengths": [
+      "Solid foundation in core data pipelines"
+    ],
+    "improvementsToProbe": [
+      "Verify null coalescing and date boundary edge cases"
+    ],
+    "hrmsSyncStatus": "Pending",
+    "hrmsTarget": "None"
+  },
+  {
+    "id": "cand-8683",
+    "candidateName": "Intro UI QA",
+    "candidateEmail": "intro.ui.1790576802497@example.test",
+    "role": "L1 Data & MDM Engineer",
+    "submittedAt": "2026-09-28T06:30:18.683Z",
+    "overallScore": 0,
+    "recommendation": "No Hire",
+    "scores": {
+      "mdm": 0,
+      "sql": 0,
+      "python": 0,
+      "edgeCases": 0,
+      "codeQuality": 0,
+      "integrity": 100
+    },
+    "proctoring": {
+      "events": [
+        {
+          "id": "evt-init",
+          "timestamp": "2026-09-28T06:14:44.481Z",
+          "type": "INFO",
+          "message": "Proctoring session initialized. Audio & visibility tracking online."
+        }
+      ]
+    },
+    "submissions": [
+      {
+        "questionId": "mdm-3",
+        "title": "Match Rules – Why Are Records Not Matching?",
+        "category": "Match & Merge",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-5",
+        "title": "Match vs Survivorship – Important Distinction",
+        "category": "Survivorship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-6",
+        "title": "Real-World Stewardship Scenario – Match + Merge + Survivorship",
+        "category": "Data Stewardship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-4",
+        "title": "Survivorship – Different Attributes, Different Sources",
+        "category": "Survivorship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-2",
+        "title": "Match – Potential Duplicate With Conflicting Data",
+        "category": "Match & Merge",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-8",
+        "title": "Pharma HCO Hierarchy - Parent System and Care Site",
+        "category": "Data Stewardship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-2",
+        "title": "HCPs Without Affiliations",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-8",
+        "title": "Latest Active Affiliation for Each HCP",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-5",
+        "title": "Currently Active HCP Affiliations",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-6",
+        "title": "HCO With Highest Number of HCPs",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-3",
+        "title": "HCP Affiliation Count",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-7",
+        "title": "Latest Affiliation for Each HCP",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-4",
+        "title": "Address Postal Code Standardization (ZIP & ZIP+4)",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-1",
+        "title": "Customer Contact String Normalization (Phone & Email)",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-5",
+        "title": "Fuzzy Match Jaccard Similarity for Legal Entity Names",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-3",
+        "title": "Customer Payload Conflict Merging with Survivorship Rules",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-6",
+        "title": "Data Quality Attribute Completeness Score Calculator",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-2",
+        "title": "Record Deduplication & Missing Attribute Imputation",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      }
+    ],
+    "aiSummary": "Candidate Intro UI QA completed the L1 MDM, SQL, and Python evaluation with an overall score of 0/100. Demonstrates competencies in data stewardship, survivorship partitioning, and fuzzy matching pipelines with 100% session integrity.",
+    "strengths": [
+      "Solid foundation in core data pipelines"
+    ],
+    "improvementsToProbe": [
+      "Verify null coalescing and date boundary edge cases"
+    ],
+    "hrmsSyncStatus": "Pending",
+    "hrmsTarget": "None"
+  },
+  {
+    "id": "cand-3215",
+    "candidateName": "Kiran Varma",
+    "candidateEmail": "kiran.varma@talent-engin.com",
+    "role": "L1 Data & MDM Engineer",
+    "submittedAt": "2026-09-28T05:42:03.214Z",
+    "overallScore": 31,
+    "recommendation": "No Hire",
+    "scores": {
+      "mdm": 88,
+      "sql": 0,
+      "python": 6,
+      "edgeCases": 0,
+      "codeQuality": 0,
+      "integrity": 98
+    },
+    "proctoring": {
+      "violationsCount": 1,
+      "integrityScore": 98,
+      "events": [
+        {
+          "id": "evt-1790574063884-199",
+          "timestamp": "2026-09-28T05:41:03.884Z",
+          "type": "WINDOW_BLUR",
+          "category": "Window Blur",
+          "message": "Window Lost Focus",
+          "details": "Candidate clicked outside the proctored evaluation workspace or switched display monitors.",
+          "severity": "low"
+        },
+        {
+          "id": "evt-init",
+          "timestamp": "2026-09-28T05:40:46.336Z",
+          "type": "INFO",
+          "message": "Proctoring session initialized. Audio & visibility tracking online."
+        }
+      ]
+    },
+    "submissions": [
+      {
+        "questionId": "mdm-9",
+        "title": "Pharma Product Master - Medicinal Product vs Package",
+        "category": "Match & Merge",
+        "score": 30,
+        "status": "Partial",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-a",
+        "candidateNotes": "Selected (A): Merge all records with the same brand and active ingredient, then let the latest package description survive.",
+        "evaluatorNotes": "Selected option A."
+      },
+      {
+        "questionId": "mdm-7",
+        "title": "Pharma HCP Resolution - Conflicting Provider Evidence",
+        "category": "Match & Merge",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-c",
+        "candidateNotes": "Selected (C): Validate the NPI and supporting identity evidence against trusted sources, review provenance and prior steward notes, then approve or reject the match while retaining source-level values.",
+        "evaluatorNotes": "Correct answer on Match & Merge."
+      },
+      {
+        "questionId": "mdm-1",
+        "title": "Stewardship – Data Quality Investigation",
+        "category": "Data Stewardship",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Selected (B): Review the contributing values and source information, validate questionable values, and use the configured survivorship/governance process to determine the Operational Value.",
+        "evaluatorNotes": "Correct answer on Data Stewardship."
+      },
+      {
+        "questionId": "mdm-5",
+        "title": "Match vs Survivorship – Important Distinction",
+        "category": "Survivorship",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-c",
+        "candidateNotes": "Selected (C): Matching can determine that the records represent the same entity, while Survivorship can independently determine which Phone value becomes the Operational Value.",
+        "evaluatorNotes": "Correct answer on Survivorship."
+      },
+      {
+        "questionId": "mdm-10",
+        "title": "Pharma Product Survivorship - Regulatory Status and Provenance",
+        "category": "Survivorship",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Selected (B): Apply attribute-level source authority: take regulatory status from the regulatory feed and the approved commercial name from ERP, preserving lineage and effective dates.",
+        "evaluatorNotes": "Correct answer on Survivorship."
+      },
+      {
+        "questionId": "mdm-2",
+        "title": "Match – Potential Duplicate With Conflicting Data",
+        "category": "Match & Merge",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Selected (B): Whether the records represent the same real-world HCP, considering the matching evidence and conflicting information",
+        "evaluatorNotes": "Correct answer on Match & Merge."
+      },
+      {
+        "questionId": "sql-hcp-2",
+        "title": "HCPs Without Affiliations",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/2",
+        "timeSpentSeconds": 0,
+        "code": "fghsf",
+        "evaluatorNotes": "The query does not satisfy the scenario requirements yet."
+      },
+      {
+        "questionId": "sql-hcp-7",
+        "title": "Latest Affiliation for Each HCP",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/3",
+        "timeSpentSeconds": 0,
+        "code": "hfgh",
+        "evaluatorNotes": "The query does not satisfy the scenario requirements yet."
+      },
+      {
+        "questionId": "sql-hcp-1",
+        "title": "HCP and HCO Affiliation Details",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/2",
+        "timeSpentSeconds": 0,
+        "code": "gfhf",
+        "evaluatorNotes": "The query does not satisfy the scenario requirements yet."
+      },
+      {
+        "questionId": "sql-hcp-5",
+        "title": "Currently Active HCP Affiliations",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/2",
+        "timeSpentSeconds": 0,
+        "code": "dfs",
+        "evaluatorNotes": "The query does not satisfy the scenario requirements yet."
+      },
+      {
+        "questionId": "sql-hcp-4",
+        "title": "HCPs With More Than Two Affiliations",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/2",
+        "timeSpentSeconds": 0,
+        "code": "sdfgsef",
+        "evaluatorNotes": "The query does not satisfy the scenario requirements yet."
+      },
+      {
+        "questionId": "sql-hcp-8",
+        "title": "Latest Active Affiliation for Each HCP",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/4",
+        "timeSpentSeconds": 0,
+        "code": "sdfgsdfg",
+        "evaluatorNotes": "The query does not satisfy the scenario requirements yet."
+      },
+      {
+        "questionId": "py-1",
+        "title": "Customer Contact String Normalization (Phone & Email)",
+        "category": "Basic Python",
+        "score": 10,
+        "status": "Failed",
+        "testCasesPassed": "0/3",
+        "timeSpentSeconds": 0,
+        "code": "sdfgsdf",
+        "evaluatorNotes": "The submission is not a valid function-based solution. | The implementation does not satisfy the required behavior yet."
+      },
+      {
+        "questionId": "py-6",
+        "title": "Data Quality Attribute Completeness Score Calculator",
+        "category": "Basic Python",
+        "score": 5,
+        "status": "Failed",
+        "testCasesPassed": "0/2",
+        "timeSpentSeconds": 0,
+        "code": "sfgsd",
+        "evaluatorNotes": "The submission is not a valid function-based solution. | The implementation does not satisfy the required behavior yet."
+      },
+      {
+        "questionId": "py-4",
+        "title": "Address Postal Code Standardization (ZIP & ZIP+4)",
+        "category": "Basic Python",
+        "score": 5,
+        "status": "Failed",
+        "testCasesPassed": "0/3",
+        "timeSpentSeconds": 0,
+        "code": "sdfgds",
+        "evaluatorNotes": "The submission is not a valid function-based solution. | The implementation does not satisfy the required behavior yet."
+      },
+      {
+        "questionId": "py-2",
+        "title": "Record Deduplication & Missing Attribute Imputation",
+        "category": "Basic Python",
+        "score": 5,
+        "status": "Failed",
+        "testCasesPassed": "0/3",
+        "timeSpentSeconds": 0,
+        "code": "sfdgsdfg",
+        "evaluatorNotes": "The submission is not a valid function-based solution. | The implementation does not satisfy the required behavior yet."
+      },
+      {
+        "questionId": "py-3",
+        "title": "Customer Payload Conflict Merging with Survivorship Rules",
+        "category": "Basic Python",
+        "score": 5,
+        "status": "Failed",
+        "testCasesPassed": "0/2",
+        "timeSpentSeconds": 0,
+        "code": "sdfgsdfg",
+        "evaluatorNotes": "The submission is not a valid function-based solution. | The implementation does not satisfy the required behavior yet."
+      },
+      {
+        "questionId": "py-5",
+        "title": "Fuzzy Match Jaccard Similarity for Legal Entity Names",
+        "category": "Basic Python",
+        "score": 5,
+        "status": "Failed",
+        "testCasesPassed": "0/2",
+        "timeSpentSeconds": 0,
+        "code": "sdfgsdfg",
+        "evaluatorNotes": "The submission is not a valid function-based solution. | The implementation does not satisfy the required behavior yet."
+      }
+    ],
+    "aiSummary": "Candidate Kiran Varma completed the L1 MDM, SQL, and Python evaluation with an overall score of 31/100. Demonstrates competencies in data stewardship, survivorship partitioning, and fuzzy matching pipelines with 98% session integrity.",
+    "strengths": [
+      "Strong grasp of survivorship and golden record governance",
+      "Solid foundation in core data pipelines"
+    ],
+    "improvementsToProbe": [
+      "Verify null coalescing and date boundary edge cases",
+      "Review environment focus during proctored session"
+    ],
+    "hrmsSyncStatus": "Pending",
+    "hrmsTarget": "None"
+  },
+  {
+    "id": "cand-8382",
+    "candidateName": "E2E Candidate",
+    "candidateEmail": "qa.e2e.1790572534540@example.test",
+    "role": "L1 Data & MDM Engineer",
+    "submittedAt": "2026-09-28T05:15:38.382Z",
+    "overallScore": 6,
+    "recommendation": "No Hire",
+    "scores": {
+      "mdm": 17,
+      "sql": 0,
+      "python": 0,
+      "edgeCases": 0,
+      "codeQuality": 0,
+      "integrity": 100
+    },
+    "proctoring": {
+      "violationsCount": 0,
+      "integrityScore": 100,
+      "events": [
+        {
+          "id": "evt-1790572534514",
+          "timestamp": "2026-09-28T05:15:34.514Z",
+          "type": "INFO",
+          "message": "New candidate assessment session initialized."
+        }
+      ]
+    },
+    "submissions": [
+      {
+        "questionId": "mdm-1",
+        "title": "Stewardship – Data Quality Investigation",
+        "category": "Data Stewardship",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Selected (B): Review the contributing values and source information, validate questionable values, and use the configured survivorship/governance process to determine the Operational Value.",
+        "evaluatorNotes": "Correct answer on Data Stewardship."
+      },
+      {
+        "questionId": "mdm-2",
+        "title": "Match – Potential Duplicate With Conflicting Data",
+        "category": "Match & Merge",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-3",
+        "title": "Match Rules – Why Are Records Not Matching?",
+        "category": "Match & Merge",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-4",
+        "title": "Survivorship – Different Attributes, Different Sources",
+        "category": "Survivorship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-5",
+        "title": "Match vs Survivorship – Important Distinction",
+        "category": "Survivorship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "mdm-6",
+        "title": "Real-World Stewardship Scenario – Match + Merge + Survivorship",
+        "category": "Data Stewardship",
+        "score": 0,
+        "status": "Failed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "",
+        "candidateNotes": "No answer submitted",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-1",
+        "title": "HCP and HCO Affiliation Details",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-2",
+        "title": "HCPs Without Affiliations",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-3",
+        "title": "HCP Affiliation Count",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-4",
+        "title": "HCPs With More Than Two Affiliations",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-5",
+        "title": "Currently Active HCP Affiliations",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-6",
+        "title": "HCO With Highest Number of HCPs",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-7",
+        "title": "Latest Affiliation for Each HCP",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-8",
+        "title": "Latest Active Affiliation for Each HCP",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-1",
+        "title": "Customer Contact String Normalization (Phone & Email)",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-2",
+        "title": "Record Deduplication & Missing Attribute Imputation",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-3",
+        "title": "Customer Payload Conflict Merging with Survivorship Rules",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-4",
+        "title": "Address Postal Code Standardization (ZIP & ZIP+4)",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-5",
+        "title": "Fuzzy Match Jaccard Similarity for Legal Entity Names",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-6",
+        "title": "Data Quality Attribute Completeness Score Calculator",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      }
+    ],
+    "aiSummary": "Candidate E2E Candidate completed the L1 MDM, SQL, and Python evaluation with an overall score of 6/100. Demonstrates competencies in data stewardship, survivorship partitioning, and fuzzy matching pipelines with 100% session integrity.",
+    "strengths": [
+      "Solid foundation in core data pipelines"
+    ],
+    "improvementsToProbe": [
+      "Verify null coalescing and date boundary edge cases"
+    ],
+    "hrmsSyncStatus": "Pending",
+    "hrmsTarget": "None"
+  },
+  {
+    "id": "cand-4104",
+    "candidateName": "Kiran Varma",
+    "candidateEmail": "kiran.varma@talent-engine.com",
+    "role": "L1 Data & MDM Engineer",
+    "submittedAt": "2026-09-24T09:05:14.103Z",
+    "overallScore": 19,
+    "recommendation": "No Hire",
+    "scores": {
+      "mdm": 77,
+      "sql": 16,
+      "python": 0,
+      "edgeCases": 10,
+      "codeQuality": 0,
+      "integrity": 60
+    },
+    "proctoring": {
+      "violationsCount": 5,
+      "integrityScore": 60,
+      "events": [
+        {
+          "id": "evt-1790240673951-99",
+          "timestamp": "2026-09-24T09:04:33.951Z",
+          "type": "PASTE_DETECTED",
+          "category": "Clipboard Paste",
+          "message": "External Clipboard Paste (237 chars)",
+          "details": "Candidate pasted 237 characters (\"Praveen Kumar Sivakumar Hello Everyone,...\") from clipboard into workspace.",
+          "severity": "high"
+        },
+        {
+          "id": "evt-paste-1790240673945-576",
+          "timestamp": "2026-09-24T09:04:33.945Z",
+          "type": "PASTE_DETECTED",
+          "category": "Clipboard Paste",
+          "severity": "high",
+          "message": "External Clipboard Paste (237 chars)",
+          "details": "Candidate pasted 237 characters (\"Praveen Kumar Sivakumar Hello Everyone,...\") into Question 11 (Product Category Revenue Contribution & Cumulative Total) code workspace."
+        },
+        {
+          "id": "evt-1790240671799-642",
+          "timestamp": "2026-09-24T09:04:31.799Z",
+          "type": "TAB_SWITCH",
+          "category": "Tab Switch",
+          "message": "Tab Switch / Window Inactive (4s)",
+          "details": "Candidate navigated away from the assessment browser tab for 4 seconds. External application or tab was active.",
+          "severity": "medium"
+        },
+        {
+          "id": "evt-1790240667240-261",
+          "timestamp": "2026-09-24T09:04:27.240Z",
+          "type": "WINDOW_BLUR",
+          "category": "Window Blur",
+          "message": "Window Lost Focus",
+          "details": "Candidate clicked outside the proctored evaluation workspace or switched display monitors.",
+          "severity": "low"
+        },
+        {
+          "id": "evt-fs-exit-1790240658574-510",
+          "timestamp": "2026-09-24T09:04:18.574Z",
+          "type": "FULLSCREEN_EXIT",
+          "category": "Full-Screen Violation",
+          "severity": "high",
+          "message": "Exited Full-Screen Mode",
+          "details": "Candidate exited mandatory full-screen mode during the active assessment session. Assessment was locked to prevent external resource lookup."
+        },
+        {
+          "id": "evt-init",
+          "timestamp": "2026-09-24T08:57:55.142Z",
+          "type": "INFO",
+          "message": "Proctoring session initialized. Audio & visibility tracking online."
+        }
+      ]
+    },
+    "submissions": [
+      {
+        "questionId": "mdm-1",
+        "title": "Stewardship – Data Quality Investigation",
+        "category": "Data Stewardship",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Selected (B): Review the contributing values and source information, validate questionable values, and use the configured survivorship/governance process to determine the Operational Value.",
+        "evaluatorNotes": "Correct answer on Data Stewardship."
+      },
+      {
+        "questionId": "mdm-2",
+        "title": "Match – Potential Duplicate With Conflicting Data",
+        "category": "Match & Merge",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Selected (B): Whether the records represent the same real-world HCP, considering the matching evidence and conflicting information",
+        "evaluatorNotes": "Correct answer on Match & Merge."
+      },
+      {
+        "questionId": "mdm-3",
+        "title": "Match Rules – Why Are Records Not Matching?",
+        "category": "Match & Merge",
+        "score": 30,
+        "status": "Partial",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-c",
+        "candidateNotes": "Selected (C): Change the source priority for Address",
+        "evaluatorNotes": "Selected option C."
+      },
+      {
+        "questionId": "mdm-4",
+        "title": "Survivorship – Different Attributes, Different Sources",
+        "category": "Survivorship",
+        "score": 30,
+        "status": "Partial",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-a",
+        "candidateNotes": "Selected (A): One source priority must be applied to all three attributes.",
+        "evaluatorNotes": "Selected option A."
+      },
+      {
+        "questionId": "mdm-5",
+        "title": "Match vs Survivorship – Important Distinction",
+        "category": "Survivorship",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-c",
+        "candidateNotes": "Selected (C): Matching can determine that the records represent the same entity, while Survivorship can independently determine which Phone value becomes the Operational Value.",
+        "evaluatorNotes": "Correct answer on Survivorship."
+      },
+      {
+        "questionId": "mdm-6",
+        "title": "Real-World Stewardship Scenario – Match + Merge + Survivorship",
+        "category": "Data Stewardship",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-c",
+        "candidateNotes": "Selected (C): The records can be consolidated as the same HCP, while survivorship independently determines the Operational Value for each attribute according to its configured strategy.",
+        "evaluatorNotes": "Correct answer on Data Stewardship."
+      },
+      {
+        "questionId": "sql-1",
+        "title": "Customer Order Aggregations & Tier Classification",
+        "category": "SQL",
+        "score": 10,
+        "status": "Failed",
+        "testCasesPassed": "0/3",
+        "timeSpentSeconds": 0,
+        "code": "select * from customers;",
+        "evaluatorNotes": "The query does not satisfy the scenario requirements yet."
+      },
+      {
+        "questionId": "sql-2",
+        "title": "Customer Deduplication & Recency Window Ranking",
+        "category": "SQL",
+        "score": 10,
+        "status": "Failed",
+        "testCasesPassed": "0/3",
+        "timeSpentSeconds": 0,
+        "code": "select * from rownumber",
+        "evaluatorNotes": "The query does not satisfy the scenario requirements yet."
+      },
+      {
+        "questionId": "sql-3",
+        "title": "Identifying Inconsistent Customer Addresses Across Staging Feeds",
+        "category": "SQL",
+        "score": 55,
+        "status": "Partial",
+        "testCasesPassed": "1/2",
+        "timeSpentSeconds": 0,
+        "code": "seect customer_id from stg_customers where count(*) =1",
+        "evaluatorNotes": "Computes total_orders | Passed 1/2 test checks."
+      },
+      {
+        "questionId": "sql-4",
+        "title": "Slowly Changing Dimensions (SCD Type 2) Active Record Identification",
+        "category": "SQL",
+        "score": 10,
+        "status": "Failed",
+        "testCasesPassed": "0/1",
+        "timeSpentSeconds": 0,
+        "code": "Select * from cusromer_id",
+        "evaluatorNotes": "The query does not satisfy the scenario requirements yet."
+      },
+      {
+        "questionId": "sql-5",
+        "title": "Product Category Revenue Contribution & Cumulative Total",
+        "category": "SQL",
+        "score": 10,
+        "status": "Failed",
+        "testCasesPassed": "0/1",
+        "timeSpentSeconds": 0,
+        "code": "select * from amount\nPraveen Kumar Sivakumar\nHello Everyone, Sorry I was on Mute\n\nsantu sinha\n1. Quantify\n2. FAQ\n3. Effort Estimate\n\nAsish Sahu\n4. On-Going Maintenance/Sustainance (Skill required any to support ?)\n\nPraveen Kumar Sivakumar\nperfect",
+        "evaluatorNotes": "The query does not satisfy the scenario requirements yet."
+      },
+      {
+        "questionId": "sql-6",
+        "title": "Cross-System Source Key Reconciliation (Unmatched Staging Records)",
+        "category": "SQL",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-1",
+        "title": "Customer Contact String Normalization (Phone & Email)",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-2",
+        "title": "Record Deduplication & Missing Attribute Imputation",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-3",
+        "title": "Customer Payload Conflict Merging with Survivorship Rules",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-4",
+        "title": "Address Postal Code Standardization (ZIP & ZIP+4)",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-5",
+        "title": "Fuzzy Match Jaccard Similarity for Legal Entity Names",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-6",
+        "title": "Data Quality Attribute Completeness Score Calculator",
+        "category": "Basic Python",
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      }
+    ],
+    "aiSummary": "Candidate Kiran Varma completed the L1 MDM, SQL, and Python evaluation with an overall score of 19/100. Demonstrates competencies in data stewardship, survivorship partitioning, and fuzzy matching pipelines with 60% session integrity.",
+    "strengths": [
+      "Solid foundation in core data pipelines"
+    ],
+    "improvementsToProbe": [
+      "Verify null coalescing and date boundary edge cases",
+      "Review environment focus during proctored session"
+    ],
+    "hrmsSyncStatus": "Synced",
+    "hrmsTarget": "Greenhouse"
+  },
+  {
+    "id": "cand-101",
+    "candidateName": "Alex Morgan",
+    "candidateEmail": "alex.morgan@example.com",
+    "role": "L1 Data & MDM Engineer",
+    "submittedAt": "2026-09-24T05:57:50.598Z",
+    "overallScore": 88,
+    "recommendation": "Strong Hire",
+    "scores": {
+      "mdm": 92,
+      "sql": 85,
+      "python": 87,
+      "edgeCases": 84,
+      "codeQuality": 90,
+      "integrity": 98
+    },
+    "proctoring": {
+      "integrityScore": 98,
+      "violationsCount": 1,
+      "tabSwitchCount": 1,
+      "pasteCount": 0,
+      "events": [
+        {
+          "id": "evt-1",
+          "timestamp": "2026-09-24T05:59:50.599Z",
+          "type": "INFO",
+          "category": "System",
+          "message": "Proctoring Session Initialized",
+          "details": "Hardware webcam streaming and ambient audio monitoring (42 dB) active."
+        },
+        {
+          "id": "evt-2",
+          "timestamp": "2026-09-24T06:08:40.599Z",
+          "type": "TAB_SWITCH",
+          "category": "Tab Switch",
+          "severity": "low",
+          "message": "Tab Switch / Window Inactive (3 seconds)",
+          "details": "Candidate clicked away from the assessment window to an external application for 3 seconds during Question 3."
+        }
+      ]
+    },
+    "submissions": [
+      {
+        "questionId": "mdm-1",
+        "title": "Data Stewardship Queue Triage & Exception Governance",
+        "category": "Data Stewardship",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 180,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Stewardship queue items between 70-85% require manual provenance inspection and recorded audit reasons rather than auto-merging.",
+        "evaluatorNotes": "Correctly identified stewardship exception handling protocol."
+      },
+      {
+        "questionId": "mdm-2",
+        "title": "Deterministic vs. Probabilistic Match Rule Strategy",
+        "category": "Match & Merge",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 160,
+        "selectedOptionId": "opt-a",
+        "candidateNotes": "Deterministic matching is suited for unique Tax IDs, while probabilistic fuzzy matching handles legal entity names.",
+        "evaluatorNotes": "Sound grasp of deterministic vs probabilistic match rule architecture."
+      },
+      {
+        "questionId": "mdm-3",
+        "title": "Attribute-Level Survivorship & Golden Record Construction",
+        "category": "Survivorship",
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 210,
+        "selectedOptionId": "opt-c",
+        "candidateNotes": "Attribute-level survivorship with source confidence for financials, recency for phone, and null-suppression.",
+        "evaluatorNotes": "Accurately applied attribute-level survivorship rules."
+      },
+      {
+        "questionId": "sql-1",
+        "title": "Customer Order Aggregations & Tier Classification",
+        "category": "SQL",
+        "score": 95,
+        "status": "Passed",
+        "testCasesPassed": "3/3",
+        "timeSpentSeconds": 420,
+        "code": "SELECT \n  c.customer_id,\n  c.customer_name,\n  COUNT(CASE WHEN o.order_status = 'COMPLETED' THEN o.order_id END) AS total_orders,\n  COALESCE(SUM(CASE WHEN o.order_status = 'COMPLETED' THEN o.order_amount ELSE 0 END), 0.0) AS total_spend,\n  CASE \n    WHEN COALESCE(SUM(CASE WHEN o.order_status = 'COMPLETED' THEN o.order_amount ELSE 0 END), 0) >= 1000 THEN 'VIP'\n    WHEN COALESCE(SUM(CASE WHEN o.order_status = 'COMPLETED' THEN o.order_amount ELSE 0 END), 0) >= 200 THEN 'Standard'\n    ELSE 'Basic'\n  END AS customer_tier\nFROM stg_customers c\nLEFT JOIN stg_orders o ON c.customer_id = o.customer_id\nGROUP BY c.customer_id, c.customer_name\nORDER BY total_spend DESC, c.customer_id ASC;",
+        "evaluatorNotes": "Clean LEFT JOIN and conditional aggregation handling non-purchasing customers seamlessly."
+      },
+      {
+        "questionId": "sql-2",
+        "title": "Customer Deduplication & Recency Window Ranking",
+        "category": "SQL",
+        "score": 92,
+        "status": "Passed",
+        "testCasesPassed": "3/3",
+        "timeSpentSeconds": 380,
+        "code": "WITH RankedProfiles AS (\n  SELECT \n    user_id,\n    full_name,\n    email,\n    status,\n    last_login_at,\n    ROW_NUMBER() OVER (\n      PARTITION BY email \n      ORDER BY last_login_at DESC, user_id DESC\n    ) AS rank_num\n  FROM stg_user_profiles\n)\nSELECT \n  user_id,\n  full_name,\n  email,\n  status,\n  last_login_at\nFROM RankedProfiles\nWHERE rank_num = 1\nORDER BY user_id ASC;",
+        "evaluatorNotes": "Accurate window ranking and tie-breaker on user_id DESC."
+      },
+      {
+        "questionId": "py-1",
+        "title": "Customer Contact String Normalization",
+        "category": "Basic Python",
+        "score": 90,
+        "status": "Passed",
+        "testCasesPassed": "3/3",
+        "timeSpentSeconds": 290,
+        "code": "import re\n\ndef normalize_phone_number(phone_raw: str) -> str:\n    if not phone_raw:\n        return \"INVALID\"\n    digits = re.sub(r'\\D', '', str(phone_raw))\n    if len(digits) == 11 and digits.startswith('1'):\n        digits = digits[1:]\n    if len(digits) == 10:\n        return f\"({digits[:3]}) {digits[3:6]}-{digits[6:]}\"\n    return \"INVALID\"",
+        "evaluatorNotes": "Robust regex extraction and valid formatting."
+      },
+      {
+        "questionId": "py-2",
+        "title": "Record Deduplication & Missing Attribute Imputation",
+        "category": "Basic Python",
+        "score": 88,
+        "status": "Passed",
+        "testCasesPassed": "3/3",
+        "timeSpentSeconds": 340,
+        "code": "def clean_and_deduplicate_records(records: list[dict]) -> list[dict]:\n    clean_records = []\n    seen = set()\n    for r in records:\n        email = r.get(\"email\")\n        if not email or str(email).strip() == \"\":\n            continue\n        norm = str(email).strip().lower()\n        if norm in seen:\n            continue\n        seen.add(norm)\n        c = dict(r)\n        if not c.get(\"country\"):\n            c[\"country\"] = \"USA\"\n        if c.get(\"is_active\") is None:\n            c[\"is_active\"] = True\n        clean_records.append(c)\n    return clean_records",
+        "evaluatorNotes": "Clean set lookup with default attribute imputation."
+      }
+    ],
+    "voiceIntroduction": {
+      "transcript": "Hi, I'm Alex Morgan. I have about 2.5 years of experience in data engineering, focusing on master data governance and match-and-merge pipelines. In my previous role, I worked with source CRM feeds, configuring deterministic rules for NPI IDs and fuzzy matching for physician addresses. I'm very comfortable using SQL window functions for survivorship and Python for data cleaning and completeness validation.",
+      "durationSeconds": 48,
+      "recordedAt": "2026-09-24T05:56:50.599Z",
+      "wordCount": 65,
+      "audioRecorded": true,
+      "topicsCovered": [
+        "MDM Architecture",
+        "Match & Merge",
+        "SQL Window Functions",
+        "Python Data Quality"
+      ]
+    },
+    "aiSummary": "Candidate demonstrates strong L1 Master Data Management competency across Data Stewardship, Match & Merge, and Survivorship principles. Spoken audio introduction verified articulate communication and practical familiarity with HCP address resolution. Solves SQL aggregations and window deduplication with clean code, and handles Python string normalization defensively.",
+    "hrmsSyncStatus": "Synced",
+    "hrmsTarget": "Greenhouse"
+  },
+  {
+    "id": "cand-102",
+    "candidateName": "Priya Sharma",
+    "candidateEmail": "priya.sharma@example.com",
+    "role": "L1 Data & MDM Engineer",
+    "submittedAt": "2026-09-23T14:57:50.599Z",
+    "overallScore": 94,
+    "recommendation": "Strong Hire",
+    "scores": {
+      "mdm": 96,
+      "sql": 94,
+      "python": 92,
+      "edgeCases": 95,
+      "codeQuality": 94,
+      "integrity": 100
+    },
+    "proctoring": {
+      "integrityScore": 100,
+      "violationsCount": 0,
+      "tabSwitchCount": 0,
+      "pasteCount": 0,
+      "events": [
+        {
+          "id": "evt-1",
+          "timestamp": "2026-09-23T14:57:50.599Z",
+          "type": "INFO",
+          "category": "System",
+          "message": "Proctoring Session Initialized",
+          "details": "Single face detected, ambient audio normal, full screen mode verified. Zero violations or tab switches throughout entire session."
+        }
+      ]
+    },
+    "submissions": [
+      {
+        "questionId": "q1",
+        "title": "Customer 360 Golden Record Resolution",
+        "category": "MDM & SQL",
+        "score": 98,
+        "status": "Passed",
+        "testCasesPassed": "3/3",
+        "timeSpentSeconds": 310,
+        "code": "-- Optimal window query with COALESCE survivorship",
+        "evaluatorNotes": "Exceptionally fast execution and handled null phone numbers cleanly."
+      }
+    ],
+    "voiceIntroduction": {
+      "transcript": "Hello! My name is Priya Sharma. I am passionate about data governance and building scalable Golden Record engines. I have worked extensively with HCP entity resolution, survivorship rules based on source system reliability weights, and writing defensive SQL and Python scripts to catch nulls and format irregularities. Excited to showcase my skills today.",
+      "durationSeconds": 42,
+      "recordedAt": "2026-09-23T14:56:50.599Z",
+      "wordCount": 56,
+      "audioRecorded": true,
+      "topicsCovered": [
+        "Data Stewardship",
+        "HCP Entity Resolution",
+        "Survivorship Rules",
+        "Defensive Python"
+      ]
+    },
+    "aiSummary": "Top tier L1 candidate. High precision in SQL window functions and Python fuzzy algorithms. Spoken audio introduction verified professional depth in HCP survivorship and data governance. Clean coding style and 100% proctoring integrity.",
+    "hrmsSyncStatus": "Synced",
+    "hrmsTarget": "Workday"
+  },
+  {
+    "id": "cand-103",
+    "candidateName": "David Chen",
+    "candidateEmail": "d.chen@example.com",
+    "role": "L1 Data & MDM Engineer",
+    "submittedAt": "2026-09-23T04:57:50.599Z",
+    "overallScore": 68,
+    "recommendation": "Re-evaluate",
+    "scores": {
+      "mdm": 70,
+      "sql": 72,
+      "python": 62,
+      "edgeCases": 65,
+      "codeQuality": 70,
+      "integrity": 76
+    },
+    "proctoring": {
+      "integrityScore": 76,
+      "violationsCount": 4,
+      "tabSwitchCount": 2,
+      "pasteCount": 2,
+      "events": [
+        {
+          "id": "evt-1",
+          "timestamp": "2026-09-23T05:00:50.599Z",
+          "type": "TAB_SWITCH",
+          "category": "Tab Switch",
+          "severity": "medium",
+          "message": "Tab Switch / Window Inactive (14 seconds)",
+          "details": "Candidate navigated away from the assessment browser tab to an external window for 14 seconds during Question 4 (SQL Scenario)."
+        },
+        {
+          "id": "evt-2",
+          "timestamp": "2026-09-23T05:04:50.599Z",
+          "type": "PASTE_DETECTED",
+          "category": "Clipboard Paste",
+          "severity": "high",
+          "message": "External Clipboard Paste (164 characters)",
+          "details": "Candidate pasted 164 characters (\"SELECT c.customer_id, c.customer_name, COUNT(CASE WHEN o.order_status = 'COMPLETED'...\") into Question 5 code workspace."
+        },
+        {
+          "id": "evt-3",
+          "timestamp": "2026-09-23T05:09:10.599Z",
+          "type": "TAB_SWITCH",
+          "category": "Tab Switch",
+          "severity": "medium",
+          "message": "Tab Switch / Window Inactive (8 seconds)",
+          "details": "Candidate switched away from the exam tab to another application for 8 seconds during Question 9."
+        },
+        {
+          "id": "evt-4",
+          "timestamp": "2026-09-23T05:11:50.599Z",
+          "type": "PASTE_DETECTED",
+          "category": "Clipboard Paste",
+          "severity": "medium",
+          "message": "External Clipboard Paste (78 characters)",
+          "details": "Candidate pasted 78 characters (\"def standardize_postal_code(raw_zip: str): ...\") into Question 12 code workspace."
+        }
+      ]
+    },
+    "submissions": [],
+    "aiSummary": "Shows potential with fundamental SQL joins, but struggled with Python string normalization regex and had multiple proctoring tab switches.",
+    "hrmsSyncStatus": "Pending",
+    "hrmsTarget": "None"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "name": "MDM, SQL & Python L1 Technical Interview Platform",
+  "description": "Comprehensive L1 technical interview platform covering MDM topics (Data Stewardship, Match & Merge, Survivorship) and scenario-based SQL & Python challenges with proctoring security, recruiter scoring, Excel export, and HRMS integrations.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
