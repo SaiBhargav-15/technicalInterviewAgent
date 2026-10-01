@@ -17,7 +17,7 @@ import { executeSQLScenario } from "./src/utils/sqlRunner";
 dotenv.config();
 
 export const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT || 3000);
 
 app.use(express.json({ limit: "10mb" }));
 
@@ -1141,6 +1141,14 @@ async function startServer() {
   });
 }
 
-if (process.env.VERCEL !== "1") {
+if (process.env.VERCEL === "1") {
+  const distPath = path.join(process.cwd(), "dist");
+  app.use(express.static(distPath));
+  app.get("*", (_req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+} else {
   void startServer();
 }
+
+export default app;
