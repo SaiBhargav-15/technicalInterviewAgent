@@ -1,12 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "express",
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
-  "framework": null,
   "functions": {
     "server.ts": {
       "includeFiles": [
-        "dist/**",
         "config/recruiter-allowlist.json",
         "data/*.json"
       ]

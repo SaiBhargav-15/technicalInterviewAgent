@@ -1,5 +1,320 @@
 [
   {
+    "id": "cand-6504",
+    "candidateName": "testCandidate",
+    "candidateEmail": "testcandidate@test.com",
+    "role": "Data Engineering",
+    "assessmentTrack": "data_engineering",
+    "submittedAt": "2026-10-01T11:23:06.502Z",
+    "overallScore": 28,
+    "recommendation": "No Hire",
+    "scores": {
+      "mdm": 0,
+      "sql": 33,
+      "python": 0,
+      "dataEngineering": 65,
+      "edgeCases": 0,
+      "codeQuality": 0,
+      "integrity": 96
+    },
+    "difficultyScores": {
+      "Basic": {
+        "score": 86,
+        "answered": 5,
+        "total": 9
+      },
+      "Intermediate": {
+        "score": 30,
+        "answered": 2,
+        "total": 6
+      },
+      "Advanced": {
+        "score": 100,
+        "answered": 1,
+        "total": 3
+      }
+    },
+    "proctoring": {
+      "integrityScore": 96,
+      "violationsCount": 2,
+      "tabSwitchCount": 0,
+      "pasteCount": 0,
+      "faceLossCount": 0,
+      "events": [
+        {
+          "id": "evt-1790853703609-272",
+          "timestamp": "2026-10-01T11:21:43.610Z",
+          "type": "WINDOW_BLUR",
+          "category": "Window Blur",
+          "message": "Window Lost Focus",
+          "details": "Candidate clicked outside the proctored evaluation workspace or switched display monitors.",
+          "severity": "low"
+        },
+        {
+          "id": "evt-1790853700534-913",
+          "timestamp": "2026-10-01T11:21:40.534Z",
+          "type": "WINDOW_BLUR",
+          "category": "Window Blur",
+          "message": "Window Lost Focus",
+          "details": "Candidate clicked outside the proctored evaluation workspace or switched display monitors.",
+          "severity": "low"
+        },
+        {
+          "id": "evt-init",
+          "timestamp": "2026-10-01T11:21:33.486Z",
+          "type": "INFO",
+          "message": "Proctoring session initialized. Audio & visibility tracking online."
+        }
+      ]
+    },
+    "submissions": [
+      {
+        "questionId": "sql-mcq-1",
+        "title": "INNER JOIN Concept",
+        "category": "SQL",
+        "difficultyLevel": "Basic",
+        "answered": true,
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Selected (B): Only HCPs that have a matching affiliation.",
+        "evaluatorNotes": "An INNER JOIN returns only rows where a matching record exists in both joined tables."
+      },
+      {
+        "questionId": "sql-hcp-1",
+        "title": "HCP and HCO Affiliation Details",
+        "category": "SQL",
+        "difficultyLevel": "Basic",
+        "answered": false,
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-mcq-4",
+        "title": "GROUP BY with COUNT",
+        "category": "SQL",
+        "difficultyLevel": "Basic",
+        "answered": true,
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Selected (B): SELECT hcp_id, COUNT(*)\n     FROM affiliations\n     GROUP BY hcp_id;",
+        "evaluatorNotes": "When an aggregate function is used with a non-aggregated column, the non-aggregated column must be included in GROUP BY."
+      },
+      {
+        "questionId": "sql-hcp-6",
+        "title": "HCO With Highest Number of HCPs",
+        "category": "SQL",
+        "difficultyLevel": "Intermediate",
+        "answered": false,
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-5",
+        "title": "Currently Active HCP Affiliations",
+        "category": "SQL",
+        "difficultyLevel": "Intermediate",
+        "answered": false,
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "sql-hcp-7",
+        "title": "Latest Affiliation for Each HCP",
+        "category": "SQL",
+        "difficultyLevel": "Advanced",
+        "answered": false,
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-4",
+        "title": "Address Postal Code Standardization (ZIP & ZIP+4)",
+        "category": "Basic Python",
+        "difficultyLevel": "Basic",
+        "answered": false,
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-1",
+        "title": "Customer Contact String Normalization (Phone & Email)",
+        "category": "Basic Python",
+        "difficultyLevel": "Basic",
+        "answered": false,
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-6",
+        "title": "Data Quality Attribute Completeness Score Calculator",
+        "category": "Basic Python",
+        "difficultyLevel": "Basic",
+        "answered": false,
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-5",
+        "title": "Fuzzy Match Jaccard Similarity for Legal Entity Names",
+        "category": "Basic Python",
+        "difficultyLevel": "Intermediate",
+        "answered": false,
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-3",
+        "title": "Customer Payload Conflict Merging with Survivorship Rules",
+        "category": "Basic Python",
+        "difficultyLevel": "Intermediate",
+        "answered": false,
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "py-7",
+        "title": "Resolve Authoritative Product Status from Out-of-Order Events",
+        "category": "Basic Python",
+        "difficultyLevel": "Advanced",
+        "answered": false,
+        "score": 0,
+        "status": "Failed",
+        "testCasesPassed": "0/0",
+        "timeSpentSeconds": 0,
+        "code": "",
+        "evaluatorNotes": "Question was unanswered."
+      },
+      {
+        "questionId": "de-mcq-2",
+        "title": "Star Schema",
+        "category": "Data Engineering",
+        "difficultyLevel": "Basic",
+        "answered": true,
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Selected (B): Fact table is connected directly to denormalized dimension tables",
+        "evaluatorNotes": "A star schema has a central fact table directly connected to dimension tables."
+      },
+      {
+        "questionId": "de-mcq-1",
+        "title": "Fact vs Dimension",
+        "category": "Data Engineering",
+        "difficultyLevel": "Basic",
+        "answered": true,
+        "score": 30,
+        "status": "Partial",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-a",
+        "candidateNotes": "Selected (A): Customer Dimension",
+        "evaluatorNotes": "Selected option A."
+      },
+      {
+        "questionId": "de-mcq-4",
+        "title": "DataFrame vs RDD",
+        "category": "Data Engineering",
+        "difficultyLevel": "Basic",
+        "answered": true,
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Selected (B): DataFrames have schema information and can benefit from Spark SQL optimizations",
+        "evaluatorNotes": "DataFrames provide schema information and enable Spark SQL/DataFrame optimizations."
+      },
+      {
+        "questionId": "de-mcq-5",
+        "title": "SCD Type 1 vs Type 2",
+        "category": "Data Engineering",
+        "difficultyLevel": "Intermediate",
+        "answered": true,
+        "score": 30,
+        "status": "Partial",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-b",
+        "candidateNotes": "Selected (B): SCD Type 1",
+        "evaluatorNotes": "Selected option B."
+      },
+      {
+        "questionId": "de-mcq-6",
+        "title": "Catalyst Optimizer",
+        "category": "Data Engineering",
+        "difficultyLevel": "Intermediate",
+        "answered": true,
+        "score": 30,
+        "status": "Partial",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-c",
+        "candidateNotes": "Selected (C): To distribute files across S3",
+        "evaluatorNotes": "Selected option C."
+      },
+      {
+        "questionId": "de-mcq-10",
+        "title": "Troubleshooting a Slow 500 GB Job",
+        "category": "Data Engineering",
+        "difficultyLevel": "Advanced",
+        "answered": true,
+        "score": 100,
+        "status": "Passed",
+        "timeSpentSeconds": 0,
+        "selectedOptionId": "opt-c",
+        "candidateNotes": "Selected (C): Examine Spark UI and the execution plan for shuffle volume, skew, partition imbalance, and inefficient joins",
+        "evaluatorNotes": "First identify the bottleneck using Spark UI and the execution plan before changing resources or caching."
+      }
+    ],
+    "aiSummary": "Candidate testCandidate completed the Data Engineering assessment with an overall score of 28/100. Assessment results include SQL, Python, and Data Engineering fundamentals. Session integrity: 96%.",
+    "strengths": [
+      "Solid foundation in core data pipelines"
+    ],
+    "improvementsToProbe": [
+      "Verify null coalescing and date boundary edge cases",
+      "Review environment focus during proctored session"
+    ],
+    "hrmsSyncStatus": "Pending",
+    "hrmsTarget": "None"
+  },
+  {
     "id": "cand-3092",
     "candidateName": "DE Score QA",
     "candidateEmail": "de.score.1790836773027@example.test",

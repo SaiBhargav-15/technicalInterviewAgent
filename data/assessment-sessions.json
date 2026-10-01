@@ -630,5 +630,62 @@
       "de-mcq-6",
       "de-mcq-9"
     ]
+  },
+  {
+    "sessionId": "assessment-1790853699879-gsxn3b",
+    "candidateEmail": "testcandidate@test.com",
+    "inviteId": "f3af649f-dd95-4229-93bc-ad3aff66bc66",
+    "track": "data_engineering",
+    "startedAt": "2026-10-01T11:21:39.879Z",
+    "deadlineAt": "2026-10-01T11:51:39.879Z",
+    "questionIds": [
+      "sql-mcq-1",
+      "sql-hcp-1",
+      "sql-mcq-4",
+      "sql-hcp-6",
+      "sql-hcp-5",
+      "sql-hcp-7",
+      "py-4",
+      "py-1",
+      "py-6",
+      "py-5",
+      "py-3",
+      "py-7",
+      "de-mcq-2",
+      "de-mcq-1",
+      "de-mcq-4",
+      "de-mcq-5",
+      "de-mcq-6",
+      "de-mcq-10"
+    ],
+    "submittedAt": "2026-10-01T11:23:06.502Z"
+  },
+  {
+    "sessionId": "assessment-1790854561309-m2o6bh",
+    "candidateEmail": "pavan@test.com",
+    "inviteId": "98e02b93-5bdd-4443-8f43-b1e922d5a236",
+    "track": "data_stewardship",
+    "startedAt": "2026-10-01T11:36:01.309Z",
+    "deadlineAt": "2026-10-01T12:06:01.309Z",
+    "questionIds": [
+      "mdm-2",
+      "mdm-4",
+      "mdm-6",
+      "mdm-10",
+      "mdm-7",
+      "mdm-11",
+      "sql-mcq-4",
+      "sql-hcp-3",
+      "sql-mcq-3",
+      "sql-hcp-6",
+      "sql-hcp-5",
+      "sql-hcp-8",
+      "py-4",
+      "py-2",
+      "py-6",
+      "py-3",
+      "py-5",
+      "py-7"
+    ]
   }
 ]

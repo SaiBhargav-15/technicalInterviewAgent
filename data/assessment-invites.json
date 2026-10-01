@@ -80,5 +80,24 @@
     "track": "data_engineering",
     "createdAt": "2026-10-01T07:14:15.333Z",
     "expiresAt": "2026-10-02T07:14:15.333Z"
+  },
+  {
+    "inviteId": "f3af649f-dd95-4229-93bc-ad3aff66bc66",
+    "candidateName": "testCandidate",
+    "email": "testcandidate@test.com",
+    "track": "data_engineering",
+    "createdAt": "2026-10-01T11:21:22.601Z",
+    "expiresAt": "2026-10-02T11:21:22.601Z",
+    "claimedAt": "2026-10-01T11:21:39.879Z",
+    "usedAt": "2026-10-01T11:23:06.502Z"
+  },
+  {
+    "inviteId": "98e02b93-5bdd-4443-8f43-b1e922d5a236",
+    "candidateName": "Pavan",
+    "email": "pavan@test.com",
+    "track": "data_stewardship",
+    "createdAt": "2026-10-01T11:35:38.046Z",
+    "expiresAt": "2026-10-02T11:35:38.046Z",
+    "claimedAt": "2026-10-01T11:36:01.309Z"
   }
 ]
