@@ -497,4 +497,94 @@ def calculate_token_jaccard(name_a: str, name_b: str) -> float:
     ],
     concept: "Data Quality Completeness KPI Calculation & Stewardship Triage",
   },
+  {
+    id: "py-7",
+    type: "scenario",
+    title: "Resolve Authoritative Product Status from Out-of-Order Events",
+    domain: "Basic Python",
+    difficulty: "Advanced",
+    estimatedMinutes: 12,
+    scenarioContext:
+      "A product pipeline receives status events from multiple systems. The regulatory source is authoritative over CRM. Events can arrive out of order, so received_at must not override a later effective_at event from the authoritative source. Invalid and empty statuses must be ignored, and the result must retain the chosen event's lineage.",
+    problemStatement:
+      "Implement `resolve_product_status(events: list[dict], source_priority: dict[str, int]) -> dict | None`. Ignore events with a missing/blank status or an unknown source. Choose the event with the best source priority (lower number is higher priority); among events from that same source, choose the latest effective_at timestamp, then the highest sequence as a deterministic tie-breaker. Return a copy of the winning event, or None if no valid event remains.",
+    businessRules: [
+      "Ignore events whose source is missing from source_priority.",
+      "Ignore events whose status is None or blank after trimming.",
+      "Lower source_priority values outrank higher values regardless of received_at.",
+      "Within one source, latest effective_at wins; highest sequence breaks ties.",
+      "Return the winning event with its source and timestamps intact, without mutating the input list.",
+      "Return None when no valid event remains.",
+    ],
+    sampleTables: [
+      {
+        tableName: "product_status_events",
+        description: "Out-of-order status events from regulatory and CRM sources",
+        columns: ["source", "status", "effective_at", "received_at", "sequence"],
+        rows: [
+          { source: "REGULATORY", status: "On Hold", effective_at: "2026-09-29T14:00:00Z", received_at: "2026-09-29T14:01:00Z", sequence: 82 },
+          { source: "CRM", status: "Released", effective_at: "2026-09-30T08:00:00Z", received_at: "2026-09-30T08:01:00Z", sequence: 14 },
+        ],
+      },
+    ],
+    language: "python",
+    starterCode: "",
+    solutionReference: `from copy import copy
+  from datetime import datetime
+
+  def _effective_timestamp(value: str) -> float:
+    return datetime.fromisoformat(value.replace("Z", "+00:00")).timestamp()
+
+def resolve_product_status(events: list[dict], source_priority: dict[str, int]) -> dict | None:
+    valid_events = []
+    for event in events:
+        source = event.get("source")
+        status = event.get("status")
+        if source not in source_priority or status is None or not str(status).strip():
+            continue
+        valid_events.append(event)
+
+    if not valid_events:
+        return None
+
+    winner = min(
+        valid_events,
+        key=lambda event: (
+            source_priority[event["source"]],
+          -_effective_timestamp(event["effective_at"]),
+            -int(event.get("sequence", 0)),
+        ),
+    )
+    return copy(winner)`,
+    testCases: [
+      {
+        id: "tc-1",
+        name: "Authoritative Source Beats Newer Lower-Priority Event",
+        description: "Selects the regulatory status even when a lower-priority CRM event arrived later.",
+        inputDescription: "Two source events with different priorities and timestamps",
+        expectedOutputSummary: "Winning event source is REGULATORY",
+      },
+      {
+        id: "tc-2",
+        name: "Latest Effective Event and Stable Tie-Breaker",
+        description: "Selects the newest effective event, then the largest sequence for equal timestamps.",
+        inputDescription: "Multiple events from the same authoritative source",
+        expectedOutputSummary: "Winning event has latest effective_at and highest sequence",
+      },
+      {
+        id: "tc-3",
+        name: "Invalid Event Rejection",
+        description: "Ignores unknown sources and blank statuses, returning None if nothing valid remains.",
+        inputDescription: "Only invalid or unmapped events",
+        expectedOutputSummary: "None",
+      },
+    ],
+    hints: [
+      "Filter invalid events before ranking them.",
+      "Use a tuple sort key that puts source priority first, then effective time and sequence descending.",
+      "Do not use received_at to decide the business-effective status.",
+      "Copy the winning dictionary rather than mutating the source event.",
+    ],
+    concept: "Event Ordering, Source Authority, and Deterministic Survivorship",
+  },
 ];

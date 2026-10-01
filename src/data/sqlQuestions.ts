@@ -1,6 +1,6 @@
-import { ScenarioQuestion } from "../types";
+import { ScenarioQuestion, SQLMultipleChoiceQuestion } from "../types";
 
-export const SQL_QUESTIONS: ScenarioQuestion[] = [
+export const SQL_QUESTIONS: Array<ScenarioQuestion | SQLMultipleChoiceQuestion> = [
 {
   id: "sql-hcp-1",
   type: "scenario",
@@ -1382,140 +1382,97 @@ LEFT JOIN hco o
     ]
   }
   },
-,
 
 {
   id: "sql-mcq-1",
-  type: "mcq",
+  type: "sql-mcq",
   title: "INNER JOIN Concept",
-  domain: "SQL",
+  topic: "SQL",
   difficulty: "Basic",
   estimatedMinutes: 2,
-
-  question:
+  questionText:
     "What does an INNER JOIN between the hcp and affiliations tables return?",
-
   options: [
-    "All HCPs, including HCPs without affiliations.",
-    "Only HCPs that have a matching affiliation.",
-    "All affiliations, including affiliations without a matching HCP.",
-    "Only HCPs whose primary_flag is 'Y'."
+    { id: "opt-a", label: "A", text: "All HCPs, including HCPs without affiliations." },
+    { id: "opt-b", label: "B", text: "Only HCPs that have a matching affiliation." },
+    { id: "opt-c", label: "C", text: "All affiliations, including affiliations without a matching HCP." },
+    { id: "opt-d", label: "D", text: "Only HCPs whose primary_flag is 'Y'." },
   ],
-
-  correctAnswer: 1,
-
+  correctOptionId: "opt-b",
   explanation:
     "An INNER JOIN returns only rows where a matching record exists in both joined tables.",
-
   concept: "SQL INNER JOIN",
-
-  evaluation: {
-    type: "mcq",
-    correctOption: 1
-  }
 },
 
 {
   id: "sql-mcq-2",
-  type: "mcq",
+  type: "sql-mcq",
   title: "WHERE Clause",
-  domain: "SQL",
+  topic: "SQL",
   difficulty: "Basic",
   estimatedMinutes: 2,
-
-  question:
+  questionText:
     "Which SQL clause is normally used to filter rows before GROUP BY is performed?",
-
   options: [
-    "HAVING",
-    "ORDER BY",
-    "WHERE",
-    "GROUP BY"
+    { id: "opt-a", label: "A", text: "HAVING" },
+    { id: "opt-b", label: "B", text: "ORDER BY" },
+    { id: "opt-c", label: "C", text: "WHERE" },
+    { id: "opt-d", label: "D", text: "GROUP BY" },
   ],
-
-  correctAnswer: 2,
-
+  correctOptionId: "opt-c",
   explanation:
     "WHERE filters individual rows before grouping and aggregation are performed.",
-
   concept: "SQL WHERE Clause",
-
-  evaluation: {
-    type: "sql",
-    correctOption: 2
-  }
 },
 
 {
   id: "sql-mcq-3",
-  type: "mcq",
+  type: "sql-mcq",
   title: "COUNT and NULL Values",
-  domain: "SQL",
+  topic: "SQL",
   difficulty: "Basic",
   estimatedMinutes: 2,
-
-  question:
+  questionText:
     "Given an affiliations table where aff_id contains three non-NULL values and one NULL value, what will SELECT COUNT(aff_id) return?",
-
   options: [
-    "4",
-    "3",
-    "1",
-    "NULL"
+    { id: "opt-a", label: "A", text: "4" },
+    { id: "opt-b", label: "B", text: "3" },
+    { id: "opt-c", label: "C", text: "1" },
+    { id: "opt-d", label: "D", text: "NULL" },
   ],
-
-  correctAnswer: 1,
-
+  correctOptionId: "opt-b",
   explanation:
     "COUNT(column_name) counts only non-NULL values in that column.",
-
   concept: "SQL COUNT and NULL Handling",
-
-  evaluation: {
-    type: "mcq",
-    correctOption: 1
-  }
 },
 
 {
   id: "sql-mcq-4",
-  type: "mcq",
+  type: "sql-mcq",
   title: "GROUP BY with COUNT",
-  domain: "SQL",
+  topic: "SQL",
   difficulty: "Basic",
   estimatedMinutes: 3,
-
-  question:
+  questionText:
     "Which query correctly returns the number of affiliations for each HCP?",
-
   options: [
-    `SELECT hcp_id, COUNT(*)
+    { id: "opt-a", label: "A", text: `SELECT hcp_id, COUNT(*)
      FROM affiliations;`,
-
-    `SELECT hcp_id, COUNT(*)
+    },
+    { id: "opt-b", label: "B", text: `SELECT hcp_id, COUNT(*)
      FROM affiliations
-     GROUP BY hcp_id;`,
-
-    `SELECT COUNT(hcp_id)
+     GROUP BY hcp_id;` },
+    { id: "opt-c", label: "C", text: `SELECT COUNT(hcp_id)
      FROM affiliations
-     GROUP BY aff_id;`,
-
-    `SELECT hcp_id, COUNT(*)
+     GROUP BY aff_id;` },
+    { id: "opt-d", label: "D", text: `SELECT hcp_id, COUNT(*)
      FROM affiliations
-     ORDER BY hcp_id;`
+     ORDER BY hcp_id;` },
   ],
-
-  correctAnswer: 1,
-
+  correctOptionId: "opt-b",
   explanation:
     "When an aggregate function is used with a non-aggregated column, the non-aggregated column must be included in GROUP BY.",
-
   concept: "SQL GROUP BY and Aggregate Functions",
-
-  evaluation: {
-    type: "mcq",
-    correctOption: 1
-  }
 }
 
   // -------------------------------------------------------------

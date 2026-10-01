@@ -6,11 +6,6 @@ import {
   Minimize2,
   ShieldAlert,
   Volume2,
-  AlertTriangle,
-  Info,
-  ChevronDown,
-  ChevronUp,
-  Activity,
   Sparkles,
 } from "lucide-react";
 import { ProctoringEvent, ProctoringState } from "../types";
@@ -30,9 +25,7 @@ export const ProctoringSystem: React.FC<ProctoringSystemProps> = ({
 }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [streamActive, setStreamActive] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
   const [audioLevel, setAudioLevel] = useState(18); // Simulated dB level
-  const [activeWarning, setActiveWarning] = useState<string | null>(null);
 
   // Initialize webcam
   useEffect(() => {
@@ -164,9 +157,6 @@ export const ProctoringSystem: React.FC<ProctoringSystemProps> = ({
       severity,
     };
 
-    setActiveWarning(`${title}: ${details}`);
-    setTimeout(() => setActiveWarning(null), 5000);
-
     setProctoringState((prev) => {
       const penalty = severity === "high" ? 12 : severity === "medium" ? 6 : 2;
       const newScore = Math.max(10, prev.integrityScore - penalty);
@@ -229,16 +219,6 @@ export const ProctoringSystem: React.FC<ProctoringSystemProps> = ({
               <Maximize2 className="w-3.5 h-3.5" />
             )}
           </button>
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="p-1 rounded-md text-slate-500 hover:text-slate-800 hover:bg-slate-200/60"
-          >
-            {isExpanded ? (
-              <ChevronUp className="w-4 h-4" />
-            ) : (
-              <ChevronDown className="w-4 h-4" />
-            )}
-          </button>
         </div>
       </div>
 
@@ -281,82 +261,6 @@ export const ProctoringSystem: React.FC<ProctoringSystemProps> = ({
         <div className="absolute inset-4 border border-emerald-500/30 rounded-xl pointer-events-none" />
       </div>
 
-      {/* Floating Active Warning Banner */}
-      {activeWarning && (
-        <div className="bg-rose-50 border-y border-rose-200 px-3 py-2 text-rose-800 text-xs flex items-start gap-2 animate-bounce">
-          <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-          <div>
-            <div className="font-semibold">Security Alert Logged</div>
-            <div className="text-[11px] text-rose-700">{activeWarning}</div>
-          </div>
-        </div>
-      )}
-
-      {/* Integrity Metrics Row */}
-      <div className="p-3 bg-white">
-        <div className="grid grid-cols-3 gap-2 text-center text-xs">
-          <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
-            <div className="text-slate-500 text-[10px]">Violations</div>
-            <div className="font-bold text-slate-800 text-sm">
-              {proctoringState.violationsCount}
-            </div>
-          </div>
-          <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
-            <div className="text-slate-500 text-[10px]">Tab Switches</div>
-            <div className="font-bold text-slate-800 text-sm">
-              {proctoringState.tabSwitchCount}
-            </div>
-          </div>
-          <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
-            <div className="text-slate-500 text-[10px]">Large Pastes</div>
-            <div className="font-bold text-slate-800 text-sm">
-              {proctoringState.pasteCount}
-            </div>
-          </div>
-        </div>
-
-        {/* Expandable Audit Log */}
-        {isExpanded && (
-          <div className="mt-3 pt-3 border-t border-slate-100">
-            <div className="text-[11px] font-semibold text-slate-700 mb-2 flex items-center justify-between">
-              <span>Session Audit Stream</span>
-              <span className="text-slate-400 font-normal">
-                {proctoringState.events.length} events
-              </span>
-            </div>
-            <div className="max-h-40 overflow-y-auto space-y-1.5 pr-1 text-xs">
-              {proctoringState.events.length === 0 ? (
-                <div className="text-slate-400 text-center py-2 text-[11px]">
-                  No security incidents logged.
-                </div>
-              ) : (
-                proctoringState.events.map((evt) => (
-                  <div
-                    key={evt.id}
-                    className={`p-2 rounded-md border text-[11px] ${
-                      evt.type === "WARNING"
-                        ? "bg-amber-50/70 border-amber-200 text-amber-900"
-                        : evt.type === "CRITICAL"
-                        ? "bg-rose-50/70 border-rose-200 text-rose-900"
-                        : "bg-slate-50 border-slate-100 text-slate-700"
-                    }`}
-                  >
-                    <div className="flex items-center justify-between font-semibold">
-                      <span>{evt.message}</span>
-                      <span className="text-[10px] text-slate-400 font-mono">
-                        {new Date(evt.timestamp).toLocaleTimeString()}
-                      </span>
-                    </div>
-                    {evt.details && (
-                      <div className="text-[10px] mt-0.5 text-slate-600">{evt.details}</div>
-                    )}
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-        )}
-      </div>
     </div>
   );
 };

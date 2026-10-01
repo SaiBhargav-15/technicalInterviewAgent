@@ -1,32 +1,24 @@
-<<<<<<< HEAD
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Technical Interview Platform
 
-# Run and deploy your AI Studio app
+React/Vite frontend with an Express API for role-based technical assessments.
 
-This contains everything you need to run your app locally.
+## Local Development
 
-View your app in AI Studio: https://ai.studio/apps/e290c235-4730-4998-bb83-e6ed5a54ade2
+Prerequisite: Node.js.
 
-## Run Locally
+```powershell
+npm install
+npm run dev
+```
 
-**Prerequisites:**  Node.js
+The app runs at `http://localhost:3000`.
 
+## Vercel Deployment
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Vercel builds the frontend into `dist` and routes `/api/*` requests through `api/[...route].ts` to the Express API. Keep the repository root as the Vercel project root and use the checked-in `vercel.json` build settings.
 
-## Recruiter Access
+Recruiter access uses the exact addresses in `config/recruiter-allowlist.json`; addresses must use `@chryselys.com`. Make sure the approved list is included in the deployment.
 
-Recruiter access is restricted to the exact addresses listed in `config/recruiter-allowlist.json`. Add approved addresses to its `allowedEmails` array; every address must use the `@chryselys.com` domain. The checked-in list is empty, so recruiter sign-in is denied until approved addresses are added. The server reads this file on each recruiter login.
+**Persistence limitation:** assessment invites, sessions, and candidate results currently use local JSON files and in-memory maps. Vercel function filesystems and memory are not durable or shared across invocations. The API routes can resolve once deployed, but full assessment workflows are not reliable for team use until these stores are moved to a persistent database. Use synthetic data only until then.
 
-## Candidate Assessment Invitations
-
-Recruiters create a role-bound assessment invitation for the candidate. Links expire 24 hours after creation and can claim one assessment session; that session can be resumed until its assessment deadline. The link is a bearer credential, so share it only with the intended candidate. Candidate OTP verification has been removed. Data Engineering invitations remain unavailable until the third topic question bank is added.
-=======
-# technicalInterviewAgent
->>>>>>> 1210bedf9e4636854d0ddaa7ae097fa084a4b436
+KEKA synchronization is not configured; the current UI only previews the payload.

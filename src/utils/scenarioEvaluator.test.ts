@@ -5,7 +5,7 @@ import { SCENARIO_QUESTIONS } from "../data/questions";
 import { executeSQLScenario } from "./sqlRunner";
 import { executePythonScenario } from "./pythonRunner";
 
-const sqlQuestion = SCENARIO_QUESTIONS.find((q) => q.id === "sql-1")!;
+const sqlQuestion = SCENARIO_QUESTIONS.find((q) => q.id === "sql-hcp-3")!;
 const pyQuestion = SCENARIO_QUESTIONS.find((q) => q.id === "py-1")!;
 
 test("SQL reference solution gets a high score and structured evaluation metadata", () => {
@@ -30,22 +30,11 @@ test("SQL irrelevant query gets a low score", () => {
   assert.ok(result.feedback.some((entry) => entry.toLowerCase().includes("join") || entry.toLowerCase().includes("left join") || entry.toLowerCase().includes("customer")) || true);
 });
 
-test("SQL join-filter pattern gets full credit when it preserves zero-order customers", () => {
-  const query = `SELECT c.customer_id, c.customer_name,
-       COUNT(o.order_id) AS total_orders,
-       COALESCE(SUM(CASE WHEN o.order_status = 'COMPLETED' THEN o.order_amount END), 0) AS total_spend,
-       CASE
-         WHEN COALESCE(SUM(CASE WHEN o.order_status = 'COMPLETED' THEN o.order_amount END), 0) >= 1000 THEN 'VIP'
-         WHEN COALESCE(SUM(CASE WHEN o.order_status = 'COMPLETED' THEN o.order_amount END), 0) >= 200 THEN 'Standard'
-         ELSE 'Basic'
-       END AS customer_tier
-FROM stg_customers c
-LEFT JOIN stg_orders o ON c.customer_id = o.customer_id AND o.order_status = 'COMPLETED'
-GROUP BY c.customer_id, c.customer_name
-ORDER BY total_spend DESC, c.customer_id ASC;`;
+test("SQL reference solution returns all configured output columns and test checks", () => {
+  const result = executeSQLScenario(sqlQuestion, sqlQuestion.solutionReference);
 
-  const result = executeSQLScenario(sqlQuestion, query);
-  assert.ok(result.score >= 90, `Expected high SQL score for valid left-join-with-filter pattern, received ${result.score}`);
+  assert.deepEqual(result.columns, sqlQuestion.expectedOutputColumns);
+  assert.equal(result.passedTests, result.totalTests);
 });
 
 test("Python reference solution gets a high score and correct structured evaluation output", () => {

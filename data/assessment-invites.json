@@ -5,6 +5,80 @@
     "email": "test@test.com",
     "track": "data_stewardship",
     "createdAt": "2026-09-28T12:13:18.057Z",
-    "expiresAt": "2026-10-05T12:13:18.057Z"
+    "expiresAt": "2026-09-29T12:13:18.057Z"
+  },
+  {
+    "inviteId": "85f5d03c-caac-4021-bc7a-6890f8cc5e1d",
+    "candidateName": "Validation QA",
+    "email": "validation.1790834214467@example.test",
+    "track": "data_stewardship",
+    "createdAt": "2026-10-01T05:56:54.525Z",
+    "expiresAt": "2026-10-02T05:56:54.525Z",
+    "claimedAt": "2026-10-01T05:56:54.545Z",
+    "usedAt": "2026-10-01T05:56:54.553Z"
+  },
+  {
+    "inviteId": "3f7a04df-14f0-4575-ba0e-706c000a6058",
+    "candidateName": "Browser Validation QA",
+    "email": "browser.validation@example.test",
+    "track": "data_stewardship",
+    "createdAt": "2026-10-01T05:57:12.988Z",
+    "expiresAt": "2026-10-02T05:57:12.988Z",
+    "claimedAt": "2026-10-01T05:57:35.316Z"
+  },
+  {
+    "inviteId": "58ab2de9-0234-43d9-917b-5f6744b0843e",
+    "candidateName": "DE Track QA",
+    "email": "de.validation.1790836564392@example.test",
+    "track": "data_engineering",
+    "createdAt": "2026-10-01T06:36:04.651Z",
+    "expiresAt": "2026-10-02T06:36:04.651Z",
+    "claimedAt": "2026-10-01T06:36:04.662Z",
+    "usedAt": "2026-10-01T06:36:04.668Z"
+  },
+  {
+    "inviteId": "91edf583-5844-430d-9c72-56557d134014",
+    "candidateName": "DE Score QA",
+    "email": "de.score.1790836773027@example.test",
+    "track": "data_engineering",
+    "createdAt": "2026-10-01T06:39:33.075Z",
+    "expiresAt": "2026-10-02T06:39:33.075Z",
+    "claimedAt": "2026-10-01T06:39:33.086Z",
+    "usedAt": "2026-10-01T06:39:33.092Z"
+  },
+  {
+    "inviteId": "60b53afb-a5c9-42d1-b496-a723e957f29c",
+    "candidateName": "DE Browser QA",
+    "email": "de.browser.4334422b1ed646529df6b8e0d1f0989e@example.test",
+    "track": "data_engineering",
+    "createdAt": "2026-10-01T06:39:54.855Z",
+    "expiresAt": "2026-10-02T06:39:54.855Z",
+    "claimedAt": "2026-10-01T06:40:26.289Z"
+  },
+  {
+    "inviteId": "fecf0f9f-a903-4859-ad2b-1d762a16be2e",
+    "candidateName": "Quota QA",
+    "email": "data_stewardship.0d7329aedea6450b8265d8f760ad06c3@example.test",
+    "track": "data_stewardship",
+    "createdAt": "2026-10-01T07:14:04.222Z",
+    "expiresAt": "2026-10-02T07:14:04.222Z",
+    "claimedAt": "2026-10-01T07:14:04.230Z"
+  },
+  {
+    "inviteId": "1bf639f9-0136-4c19-95b9-6a4eb1b9550a",
+    "candidateName": "Quota QA",
+    "email": "data_engineering.a86a2f46aff8498dafec848823bd2a07@example.test",
+    "track": "data_engineering",
+    "createdAt": "2026-10-01T07:14:04.325Z",
+    "expiresAt": "2026-10-02T07:14:04.325Z",
+    "claimedAt": "2026-10-01T07:14:04.328Z"
+  },
+  {
+    "inviteId": "c468430f-1958-44e9-ac3e-2f8e4e6365da",
+    "candidateName": "Privacy UI QA",
+    "email": "privacy.qa.bc2f9d0ec6154473a816234e295e25da@example.test",
+    "track": "data_engineering",
+    "createdAt": "2026-10-01T07:14:15.333Z",
+    "expiresAt": "2026-10-02T07:14:15.333Z"
   }
 ]

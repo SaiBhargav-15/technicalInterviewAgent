@@ -488,4 +488,53 @@ export const MDM_QUESTIONS: MDMTopicQuestion[] = [
     governanceGuideline:
       "Survivorship should follow field-specific authority: the regulatory reference governs regulatory status, while the approved ERP catalog governs the commercial name. Preserve source lineage and effective dates; use recency only as a tie-breaker among comparably trusted values.",
   },
+  {
+    id: "mdm-11",
+    type: "mdm",
+    title: "Pharma Survivorship - Conflicting Lot Release Evidence",
+    topic: "Survivorship",
+    difficulty: "Advanced",
+    estimatedMinutes: 7,
+    scenarioContext:
+      "A manufacturer consolidates product-lot data from its validated quality system, ERP, and a distributor feed. The quality system is authoritative for lot release status and effective time. ERP owns the commercial product identifier. A newer distributor message says a lot is released, but its timestamp predates a later quality hold event. Downstream shipment eligibility must use the current governed state while retaining an audit trail.",
+    sampleTables: [
+      {
+        tableName: "pharma_lot_source_events",
+        description: "Source events contributing to the operational lot status",
+        columns: ["source", "lot_id", "product_id", "release_status", "effective_at", "received_at", "source_sequence"],
+        rows: [
+          { source: "Quality System", lot_id: "LOT-8841", product_id: "ERP-210", release_status: "Released", effective_at: "2026-09-28T08:00:00Z", received_at: "2026-09-28T08:02:00Z", source_sequence: 81 },
+          { source: "Quality System", lot_id: "LOT-8841", product_id: "ERP-210", release_status: "On Hold", effective_at: "2026-09-29T14:00:00Z", received_at: "2026-09-29T14:01:00Z", source_sequence: 82 },
+          { source: "Distributor Feed", lot_id: "LOT-8841", product_id: "DIST-992", release_status: "Released", effective_at: "2026-09-28T08:00:00Z", received_at: "2026-09-30T10:00:00Z", source_sequence: 14 },
+        ],
+      },
+    ],
+    questionText:
+      "Which survivorship design should govern shipment eligibility while preserving lineage and handling out-of-order events?",
+    options: [
+      {
+        id: "opt-a",
+        label: "A",
+        text: "Choose the value with the latest received_at timestamp across all sources, so the distributor's Released value wins.",
+      },
+      {
+        id: "opt-b",
+        label: "B",
+        text: "Apply source authority per attribute, use the quality system's effective event ordering for lot status, retain all contributing events and lineage, and expose On Hold until a later authoritative release event arrives.",
+      },
+      {
+        id: "opt-c",
+        label: "C",
+        text: "Use ERP for both product identity and lot status because ERP is the commercial system of record.",
+      },
+      {
+        id: "opt-d",
+        label: "D",
+        text: "Delete older events after each update and accept the most recently ingested status to simplify downstream processing.",
+      },
+    ],
+    correctOptionId: "opt-b",
+    governanceGuideline:
+      "Resolve each attribute from its authoritative source. For event-driven lot status, order authoritative quality events by effective time and a stable source sequence, not cross-source receipt time. Preserve source events and lineage so late or out-of-order messages cannot overwrite a later quality hold.",
+  },
 ];

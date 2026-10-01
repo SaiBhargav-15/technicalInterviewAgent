@@ -16,7 +16,7 @@ import { executeSQLScenario } from "./src/utils/sqlRunner";
 
 dotenv.config();
 
-const app = express();
+export const app = express();
 const PORT = 3000;
 
 app.use(express.json({ limit: "10mb" }));
@@ -441,7 +441,7 @@ function getActiveAssessmentSession(sessionId: unknown) {
   const availableQuestionIds = new Set(ALL_EXAM_QUESTIONS.map((question) => question.id));
   if (
     !Array.isArray(questionIds) ||
-    questionIds.length !== QUESTIONS_PER_TOPIC * (session.track === "data_stewardship" ? 3 : 0) ||
+    questionIds.length !== QUESTIONS_PER_TOPIC * 3 ||
     new Set(questionIds).size !== questionIds.length ||
     questionIds.some((questionId) => !availableQuestionIds.has(questionId))
   ) {
@@ -556,11 +556,13 @@ function computeHeuristicScorecard(
   submissions: any[] = [],
   proctoringLog: any = {},
   timeTakenSeconds: number = 1800,
-  voiceIntroduction?: any
+  voiceIntroduction?: any,
+  assessmentTrack: AssessmentTrack = "data_stewardship"
 ) {
   let mdmScores: number[] = [];
   let sqlScores: number[] = [];
   let pythonScores: number[] = [];
+  let dataEngineeringScores: number[] = [];
   let edgeCasePassedCount = 0;
   let totalTestCases = 0;
 
@@ -569,6 +571,7 @@ function computeHeuristicScorecard(
     const cat = (sub.category || "").toLowerCase();
     if (cat.includes("sql")) sqlScores.push(s);
     if (cat.includes("python")) pythonScores.push(s);
+    if (cat.includes("data engineering")) dataEngineeringScores.push(s);
     if (
       cat.includes("mdm") ||
       cat.includes("master") ||
@@ -594,6 +597,7 @@ function computeHeuristicScorecard(
   const mdm = avg(mdmScores);
   const sql = avg(sqlScores);
   const python = avg(pythonScores);
+  const dataEngineering = avg(dataEngineeringScores);
 
   const edgeCases =
     totalTestCases > 0 ? Math.round((edgeCasePassedCount / totalTestCases) * 100) : 0;
@@ -618,10 +622,10 @@ function computeHeuristicScorecard(
     Math.min(100, proctoringLog?.integrityScore ?? 100 - (proctoringLog?.violationsCount || 0) * 8)
   );
 
-  const weightedOverall = Math.round(
-    (mdm * 0.35 + sql * 0.25 + python * 0.20 + edgeCases * 0.10 + codeQuality * 0.10) *
-      (integrityScore / 100)
-  );
+  const trackScore = assessmentTrack === "data_engineering"
+    ? sql * 0.30 + python * 0.30 + dataEngineering * 0.30 + edgeCases * 0.05 + codeQuality * 0.05
+    : mdm * 0.35 + sql * 0.25 + python * 0.20 + edgeCases * 0.10 + codeQuality * 0.10;
+  const weightedOverall = Math.round(trackScore * (integrityScore / 100));
 
   let recommendation: "Strong Hire" | "Hire" | "Re-evaluate" | "No Hire" = "Hire";
   if (weightedOverall >= 88 && integrityScore >= 90) recommendation = "Strong Hire";
@@ -633,6 +637,7 @@ function computeHeuristicScorecard(
   if (mdm >= 80) strengths.push("Strong grasp of survivorship and golden record governance");
   if (sql >= 80) strengths.push("Effective use of SQL window ranking and partition clauses");
   if (python >= 80) strengths.push("Proficient in Python text normalization and fuzzy deduplication algorithms");
+  if (dataEngineering >= 80) strengths.push("Strong understanding of data engineering fundamentals and Spark concepts");
   if (codeQuality >= 85) strengths.push("Clean modular code formatting and defensive edge-case handling");
   if (voiceIntroduction?.transcript) strengths.push("Articulate spoken self-introduction demonstrating MDM background");
   if (strengths.length < 2) strengths.push("Solid foundation in core data pipelines");
@@ -645,6 +650,7 @@ function computeHeuristicScorecard(
   const voiceSynthesis = voiceIntroduction?.transcript
     ? ` Candidate delivered a verified ${voiceIntroduction.durationSeconds || 30}s voice self-introduction (${voiceIntroduction.wordCount || 0} words) outlining relevant MDM experience.`
     : "";
+  const trackLabel = assessmentTrack === "data_engineering" ? "Data Engineering" : "Data Stewardship";
 
   return {
     overallScore: weightedOverall,
@@ -653,11 +659,12 @@ function computeHeuristicScorecard(
       mdm,
       sql,
       python,
+      dataEngineering,
       edgeCases,
       codeQuality,
       integrity: integrityScore,
     },
-    aiSummary: `Candidate ${candidateName} completed the L1 MDM, SQL, and Python evaluation with an overall score of ${weightedOverall}/100.${voiceSynthesis} Demonstrates competencies in data stewardship, survivorship partitioning, and fuzzy matching pipelines with ${integrityScore}% session integrity.`,
+    aiSummary: `Candidate ${candidateName} completed the ${trackLabel} assessment with an overall score of ${weightedOverall}/100.${voiceSynthesis} ${assessmentTrack === "data_engineering" ? "Assessment results include SQL, Python, and Data Engineering fundamentals." : "Assessment results include data stewardship, SQL, and Python."} Session integrity: ${integrityScore}%.`,
     strengths,
     improvementsToProbe: improvements,
   };
@@ -830,14 +837,15 @@ app.post("/api/assessment/sessions/:sessionId/submit", (req, res) => {
     .map((questionId) => ALL_EXAM_QUESTIONS.find((question) => question.id === questionId))
     .filter((question): question is ExamQuestion => question !== undefined);
   const submissions = sessionQuestions.map((question) => {
-    if (question.type === "mdm") {
+    if (question.type === "mdm" || question.type === "sql-mcq" || question.type === "data-engineering-mcq") {
       const selectedOptionId = typeof answers[question.id] === "string" ? answers[question.id] : "";
       const selectedOption = question.options.find((option) => option.id === selectedOptionId);
       const isCorrect = selectedOptionId === question.correctOptionId;
+      const category = question.topic;
       return {
         questionId: question.id,
         title: question.title,
-        category: question.topic,
+        category,
         difficultyLevel: question.difficulty,
         answered: Boolean(selectedOptionId),
         score: isCorrect ? 100 : selectedOptionId ? 30 : 0,
@@ -845,7 +853,9 @@ app.post("/api/assessment/sessions/:sessionId/submit", (req, res) => {
         timeSpentSeconds: 0,
         selectedOptionId,
         candidateNotes: selectedOption ? `Selected (${selectedOption.label}): ${selectedOption.text}` : "No answer submitted",
-        evaluatorNotes: isCorrect ? `Correct answer on ${question.topic}.` : selectedOptionId ? `Selected option ${selectedOption?.label}.` : "Question was unanswered.",
+        evaluatorNotes: isCorrect
+          ? question.type === "mdm" ? `Correct answer on ${category}.` : question.explanation
+          : selectedOptionId ? `Selected option ${selectedOption?.label}.` : "Question was unanswered.",
       };
     }
 
@@ -891,7 +901,8 @@ app.post("/api/assessment/sessions/:sessionId/submit", (req, res) => {
     submissions,
     proctoringAudit,
     timeTakenSeconds,
-    req.body?.voiceIntroduction || undefined
+    req.body?.voiceIntroduction || undefined,
+    session.track
   );
   const difficultyScores = computeDifficultyScores(submissions);
   const newCandidate = {
@@ -1085,7 +1096,8 @@ app.post("/api/ai/score-assessment", async (req, res) => {
     candidateName || "Candidate",
     submissions || [],
     proctoringAudit,
-    timeTakenSeconds || 1800
+    timeTakenSeconds || 1800,
+    activeSession.session.track
   );
 
   return res.json(heuristic);
@@ -1129,4 +1141,6 @@ async function startServer() {
   });
 }
 
-startServer();
+if (process.env.VERCEL !== "1") {
+  void startServer();
+}

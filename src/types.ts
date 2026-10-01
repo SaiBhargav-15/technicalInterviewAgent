@@ -48,6 +48,36 @@ export interface MDMTopicQuestion {
   sampleTables?: SampleTable[];
 }
 
+export interface SQLMultipleChoiceQuestion {
+  id: string;
+  type: "sql-mcq";
+  title: string;
+  topic: "SQL";
+  difficulty: QuestionLevel;
+  estimatedMinutes: number;
+  scenarioContext?: string;
+  sampleTables?: SampleTable[];
+  questionText: string;
+  options: MDMOption[];
+  correctOptionId: string;
+  explanation: string;
+  concept: string;
+}
+
+export interface DataEngineeringMultipleChoiceQuestion {
+  id: string;
+  type: "data-engineering-mcq";
+  title: string;
+  topic: "Data Engineering";
+  difficulty: QuestionLevel;
+  estimatedMinutes: number;
+  questionText: string;
+  options: MDMOption[];
+  correctOptionId: string;
+  explanation: string;
+  concept: string;
+}
+
 export interface StructuralCheck {
   id: string;
   label: string;
@@ -67,7 +97,7 @@ export interface QuestionEvaluationMetadata {
 
 export interface ScenarioQuestion {
   id: string;
-  type: "scenario" | "mcq";
+  type: "scenario";
   title: string;
   domain: "SQL" | "Basic Python";
   difficulty: QuestionLevel;
@@ -87,7 +117,11 @@ export interface ScenarioQuestion {
   evaluation?: QuestionEvaluationMetadata;
 }
 
-export type ExamQuestion = MDMTopicQuestion | ScenarioQuestion;
+export type ExamQuestion =
+  | MDMTopicQuestion
+  | SQLMultipleChoiceQuestion
+  | DataEngineeringMultipleChoiceQuestion
+  | ScenarioQuestion;
 
 export interface SubmissionResult {
   questionId: string;
@@ -160,6 +194,7 @@ export interface CandidateScores {
   mdm: number;
   sql: number;
   python: number;
+  dataEngineering: number;
   edgeCases: number;
   codeQuality: number;
   integrity: number;

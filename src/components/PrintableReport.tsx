@@ -125,19 +125,21 @@ export const PrintableReport: React.FC<PrintableReportProps> = ({
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 text-slate-700">
-              <tr>
-                <td className="p-3 font-semibold text-slate-900">
-                  Master Data Management (Survivorship & Golden Record)
-                </td>
-                <td className="p-3">25%</td>
-                <td className="p-3 font-bold text-indigo-700">{candidate.scores?.mdm ?? 0}%</td>
-                <td className="p-3 font-medium text-emerald-700">Meets L1 Senior Standard</td>
-              </tr>
+              {candidate.assessmentTrack !== "data_engineering" && (
+                <tr>
+                  <td className="p-3 font-semibold text-slate-900">
+                    Master Data Management (Survivorship & Golden Record)
+                  </td>
+                  <td className="p-3">35%</td>
+                  <td className="p-3 font-bold text-indigo-700">{candidate.scores?.mdm ?? 0}%</td>
+                  <td className="p-3 font-medium text-emerald-700">Meets L1 Senior Standard</td>
+                </tr>
+              )}
               <tr>
                 <td className="p-3 font-semibold text-slate-900">
                   SQL Window Functions, SCD Type 2 & Deduplication
                 </td>
-                <td className="p-3">25%</td>
+                <td className="p-3">{candidate.assessmentTrack === "data_engineering" ? "30%" : "25%"}</td>
                 <td className="p-3 font-bold text-indigo-700">{candidate.scores?.sql ?? 0}%</td>
                 <td className="p-3 font-medium text-emerald-700">Proficient Query Syntax</td>
               </tr>
@@ -145,23 +147,37 @@ export const PrintableReport: React.FC<PrintableReportProps> = ({
                 <td className="p-3 font-semibold text-slate-900">
                   Python Data Cleansing, Fuzzy Matching & Anomaly Rules
                 </td>
-                <td className="p-3">25%</td>
+                <td className="p-3">{candidate.assessmentTrack === "data_engineering" ? "30%" : "20%"}</td>
                 <td className="p-3 font-bold text-indigo-700">{candidate.scores?.python ?? 0}%</td>
                 <td className="p-3 font-medium text-emerald-700">Strong Problem Solving</td>
               </tr>
+              {candidate.assessmentTrack === "data_engineering" && (
+                <tr>
+                  <td className="p-3 font-semibold text-slate-900">Data Engineering Fundamentals</td>
+                  <td className="p-3">30%</td>
+                  <td className="p-3 font-bold text-indigo-700">{candidate.scores?.dataEngineering ?? 0}%</td>
+                  <td className="p-3 font-medium text-slate-700">MCQ Fundamentals</td>
+                </tr>
+              )}
               <tr>
                 <td className="p-3 font-semibold text-slate-900">
                   Edge Case Handling & Defensive Validation
                 </td>
-                <td className="p-3">15%</td>
+                <td className="p-3">{candidate.assessmentTrack === "data_engineering" ? "5%" : "10%"}</td>
                 <td className="p-3 font-bold text-indigo-700">{candidate.scores?.edgeCases ?? 0}%</td>
                 <td className="p-3 font-medium text-slate-700">Standard Null Handling</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-semibold text-slate-900">Code Quality & Clean Architecture</td>
+                <td className="p-3">{candidate.assessmentTrack === "data_engineering" ? "5%" : "10%"}</td>
+                <td className="p-3 font-bold text-indigo-700">{candidate.scores?.codeQuality ?? 0}%</td>
+                <td className="p-3 font-medium text-slate-700">Defensive Implementation</td>
               </tr>
               <tr>
                 <td className="p-3 font-semibold text-slate-900">
                   Proctoring Exam Integrity Factor
                 </td>
-                <td className="p-3">10%</td>
+                <td className="p-3">Multiplier</td>
                 <td className="p-3 font-bold text-emerald-700">
                   {candidate.proctoring?.integrityScore ?? 100}%
                 </td>

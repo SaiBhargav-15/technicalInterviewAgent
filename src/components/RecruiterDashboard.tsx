@@ -461,10 +461,12 @@ export const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({
                 </h4>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                  <SkillProgressBar
-                    label="MDM Architecture & Golden Record"
-                    score={selectedCandidate.scores?.mdm ?? 85}
-                  />
+                  {selectedCandidate.assessmentTrack !== "data_engineering" && (
+                    <SkillProgressBar
+                      label="MDM Architecture & Golden Record"
+                      score={selectedCandidate.scores?.mdm ?? 85}
+                    />
+                  )}
                   <SkillProgressBar
                     label="SQL Window Functions & SCD2"
                     score={selectedCandidate.scores?.sql ?? 80}
@@ -473,6 +475,12 @@ export const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({
                     label="Python Deduplication & Fuzzy Matching"
                     score={selectedCandidate.scores?.python ?? 82}
                   />
+                  {selectedCandidate.assessmentTrack === "data_engineering" && (
+                    <SkillProgressBar
+                      label="Data Engineering Fundamentals"
+                      score={selectedCandidate.scores?.dataEngineering ?? 0}
+                    />
+                  )}
                   <SkillProgressBar
                     label="Edge Cases & Null Defense"
                     score={selectedCandidate.scores?.edgeCases ?? 75}
@@ -1051,14 +1059,16 @@ export const RecruiterDashboard: React.FC<RecruiterDashboardProps> = ({
                 Assessment track
                 <select value={inviteTrack} onChange={(event) => setInviteTrack(event.target.value as AssessmentTrack)} className="mt-1 w-full px-3 py-2.5 rounded-lg border border-slate-300 bg-white font-normal">
                   <option value="data_stewardship">Data Stewardship (MDM, SQL, Basic Python)</option>
-                  <option value="data_engineering" disabled>Data Engineering (not available yet)</option>
+                  <option value="data_engineering">Data Engineering (SQL, Python, Data Engineering)</option>
                 </select>
               </label>
 
               {inviteError && <p role="alert" className="text-xs text-rose-700 bg-rose-50 border border-rose-200 rounded-lg p-3">{inviteError}</p>}
               {inviteUrl && (
                 <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 space-y-2">
-                  <div className="text-xs font-semibold text-emerald-900">18-question invite created. Link expires in 24 hours.</div>
+                  <div className="text-xs font-semibold text-emerald-900">
+                    18-question {inviteTrack === "data_stewardship" ? "Data Stewardship" : "Data Engineering"} invite created. Link expires in 24 hours.
+                  </div>
                   <div className="flex items-center gap-2">
                     <input readOnly value={inviteUrl} className="min-w-0 flex-1 px-2 py-2 rounded border border-emerald-200 bg-white text-[11px]" />
                     <button type="button" onClick={() => void navigator.clipboard.writeText(inviteUrl).then(() => setIsInviteCopied(true))} className="p-2 rounded border border-emerald-300 text-emerald-800 hover:bg-emerald-100" title="Copy invite link">

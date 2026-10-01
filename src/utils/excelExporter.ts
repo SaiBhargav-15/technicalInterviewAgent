@@ -16,6 +16,7 @@ export function exportCandidateToExcel(candidate: CandidateAssessment): void {
     { Property: "MDM Domain Score", Value: `${candidate.scores?.mdm ?? 0} %` },
     { Property: "SQL Query Score", Value: `${candidate.scores?.sql ?? 0} %` },
     { Property: "Python Problem Solving", Value: `${candidate.scores?.python ?? 0} %` },
+    { Property: "Data Engineering Fundamentals", Value: `${candidate.scores?.dataEngineering ?? 0} %` },
     ...(["Basic", "Intermediate", "Advanced"] as const).flatMap((level) => {
       const result = candidate.difficultyScores?.[level];
       return [
@@ -145,6 +146,7 @@ export function exportAllCandidatesToExcel(candidates: CandidateAssessment[]): v
     "MDM Score": c.scores?.mdm ?? 0,
     "SQL Score": c.scores?.sql ?? 0,
     "Python Score": c.scores?.python ?? 0,
+    "Data Engineering Score": c.scores?.dataEngineering ?? 0,
     "Basic Score": c.difficultyScores?.Basic.score ?? "Not attempted",
     "Basic Answered": c.difficultyScores ? `${c.difficultyScores.Basic.answered}/${c.difficultyScores.Basic.total}` : "Unavailable",
     "Intermediate Score": c.difficultyScores?.Intermediate.score ?? "Not attempted",

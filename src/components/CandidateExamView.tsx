@@ -22,8 +22,10 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import {
+  DataEngineeringMultipleChoiceQuestion,
   ExamQuestion,
   MDMTopicQuestion,
+  SQLMultipleChoiceQuestion,
   ScenarioQuestion,
   SubmissionResult,
   ProctoringState,
@@ -73,7 +75,9 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
 
   const isScenario = currentQuestion.type === "scenario";
   const scenarioQ = isScenario ? (currentQuestion as ScenarioQuestion) : null;
-  const mdmQ = !isScenario ? (currentQuestion as MDMTopicQuestion) : null;
+  const choiceQ = currentQuestion.type === "mdm" || currentQuestion.type === "sql-mcq" || currentQuestion.type === "data-engineering-mcq"
+    ? currentQuestion as MDMTopicQuestion | SQLMultipleChoiceQuestion | DataEngineeringMultipleChoiceQuestion
+    : null;
 
   const code = candidateCodeMap[questionId] ?? "";
   const selectedOptionId = candidateAnswersMap[questionId] || "";
@@ -233,8 +237,8 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
   const handleSaveAndNext = () => {
     const duration = Math.round((Date.now() - startTime) / 1000);
 
-    if (currentQuestion.type === "mdm" && mdmQ) {
-      const isCorrect = selectedOptionId === mdmQ.correctOptionId;
+    if (choiceQ) {
+      const isCorrect = selectedOptionId === choiceQ.correctOptionId;
       const score = isCorrect ? 100 : selectedOptionId ? 30 : 0;
       const status: "Passed" | "Partial" | "Failed" = isCorrect
         ? "Passed"
@@ -242,23 +246,25 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
         ? "Partial"
         : "Failed";
 
-      const selectedOpt = mdmQ.options.find((o) => o.id === selectedOptionId);
+      const selectedOpt = choiceQ.options.find((o) => o.id === selectedOptionId);
 
       setSubmissionsMap((prev) => ({
         ...prev,
         [questionId]: {
           questionId,
-          title: mdmQ.title,
-          category: mdmQ.topic,
+          title: choiceQ.title,
+          category: choiceQ.topic,
+          difficultyLevel: choiceQ.difficulty,
+          answered: Boolean(selectedOptionId),
           score,
           status,
           timeSpentSeconds: duration,
           selectedOptionId,
           candidateNotes: selectedOpt ? `Selected (${selectedOpt.label}): ${selectedOpt.text}` : "No selection",
           evaluatorNotes: isCorrect
-            ? `Correct answer on ${mdmQ.topic}.`
+            ? choiceQ.type === "mdm" ? `Correct answer on ${choiceQ.topic}.` : choiceQ.explanation
             : `Selected Option ${selectedOpt?.label || "None"}. Correct was Option ${
-                mdmQ.options.find((o) => o.id === mdmQ.correctOptionId)?.label
+                choiceQ.options.find((o) => o.id === choiceQ.correctOptionId)?.label
               }.`,
         },
       }));
@@ -317,7 +323,8 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
 
   const totalAnswered = questions.filter(
     (q) =>
-      (q.type === "mdm" && candidateAnswersMap[q.id]) ||
+      ((q.type === "mdm" || q.type === "sql-mcq") && candidateAnswersMap[q.id]) ||
+        ((q.type === "mdm" || q.type === "sql-mcq" || q.type === "data-engineering-mcq") && candidateAnswersMap[q.id]) ||
       (q.type === "scenario" && (submissionsMap[q.id] || candidateCodeMap[q.id]))
   ).length;
 
@@ -341,7 +348,7 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
 
           {questions.map((q, idx) => {
             const answered =
-              (q.type === "mdm" && !!candidateAnswersMap[q.id]) ||
+              ((q.type === "mdm" || q.type === "sql-mcq" || q.type === "data-engineering-mcq") && !!candidateAnswersMap[q.id]) ||
               (q.type === "scenario" && (!!submissionsMap[q.id] || !!candidateCodeMap[q.id]));
             const isCurrent = idx === currentQuestionIndex;
 
@@ -361,7 +368,7 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
                 <span>
                   Q{idx + 1}
                   <span className="opacity-70 text-[10px] ml-1">
-                    ({q.type === "mdm" ? "MDM" : (q as ScenarioQuestion).language.toUpperCase()})
+                    ({q.type === "mdm" ? "MDM" : q.type === "sql-mcq" ? "SQL" : q.type === "data-engineering-mcq" ? "DATA ENGINEERING" : (q as ScenarioQuestion).language.toUpperCase()})
                   </span>
                 </span>
               </button>
@@ -420,7 +427,7 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
       </div>
 
       {/* QUESTION CONTENT CONTAINER */}
-      {currentQuestion.type === "mdm" && mdmQ ? (
+      {choiceQ ? (
         /* ========================================================================= */
         /* MDM CONCEPTUAL QUESTION VIEW (Data Stewardship, Match & Merge, Survivorship)*/
         /* ========================================================================= */
@@ -430,20 +437,20 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
             <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-xs space-y-4">
               <div className="flex items-center justify-between">
                 <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-50 text-indigo-700 border border-indigo-200">
-                  Topic: {mdmQ.topic}
+                  Topic: {choiceQ.topic}
                 </span>
                 <span className="text-xs text-slate-500 font-medium">
-                  {mdmQ.difficulty} • ~{mdmQ.estimatedMinutes} mins
+                  {choiceQ.difficulty} • ~{choiceQ.estimatedMinutes} mins
                 </span>
               </div>
 
               <div>
                 <h2 className="text-lg font-bold text-slate-900 leading-snug">
-                  {mdmQ.title}
+                  {choiceQ.title}
                 </h2>
                 <div className="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
                   <BookOpen className="w-3.5 h-3.5 text-indigo-600" />
-                  <span>Master Data Management Evaluation Rubric</span>
+                  <span>{choiceQ.type === "mdm" ? "Master Data Management Evaluation Rubric" : `${choiceQ.topic} Fundamentals`}</span>
                 </div>
               </div>
 
@@ -453,13 +460,13 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
                   <FileCheck2 className="w-3.5 h-3.5 text-[#003B54]" />
                   Operational Scenario Context:
                 </span>
-                <p>{mdmQ.scenarioContext}</p>
+                <p>{choiceQ.type === "mdm" ? choiceQ.scenarioContext : choiceQ.explanation}</p>
               </div>
 
               {/* MDM Sample Staging Data */}
-              {mdmQ.sampleTables && mdmQ.sampleTables.length > 0 && (
+              {choiceQ.type === "mdm" && choiceQ.sampleTables && choiceQ.sampleTables.length > 0 && (
                 <div className="space-y-3 pt-2 border-t border-slate-100">
-                  {mdmQ.sampleTables.map((tbl, tIdx) => (
+                  {choiceQ.sampleTables.map((tbl, tIdx) => (
                     <div key={tIdx} className="space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
@@ -506,7 +513,9 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
                   L1 Assessment Directive:
                 </span>
                 <p>
-                  Evaluate the scenario based on standard enterprise data governance protocols, lineage verification, and MDM hub integrity.
+                  {choiceQ.type === "mdm"
+                    ? "Evaluate the scenario based on standard enterprise data governance protocols, lineage verification, and MDM hub integrity."
+                    : `Select the best answer based on ${choiceQ.topic} fundamentals.`}
                 </p>
               </div>
             </div>
@@ -526,13 +535,13 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
                   Question {currentQuestionIndex + 1}
                 </span>
                 <h3 className="text-base font-semibold text-slate-900 leading-relaxed">
-                  {mdmQ.questionText}
+                  {choiceQ.questionText}
                 </h3>
               </div>
 
               {/* Option Selection Cards */}
               <div className="space-y-3 pt-2">
-                {mdmQ.options.map((opt) => {
+                {choiceQ.options.map((opt) => {
                   const isSelected = selectedOptionId === opt.id;
                   return (
                     <button
@@ -861,12 +870,6 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
                   {totalAnswered} / {questions.length}
                 </span>
               </div>
-              <div className="flex items-center justify-between">
-                <span>Proctoring Inactivity Flags:</span>
-                <span className="font-medium text-slate-600">
-                  {proctoringState.violationsCount}
-                </span>
-              </div>
             </div>
 
             <div className="flex items-center justify-end gap-3 pt-2">
@@ -960,14 +963,9 @@ export const CandidateExamView: React.FC<CandidateExamViewProps> = ({
             </div>
 
             <div className="space-y-2">
-              <span className="px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-[11px] font-bold uppercase tracking-wider border border-rose-200">
-                Security Incident Logged (-10% Integrity)
-              </span>
-              <h2 className="text-xl font-bold text-slate-900 tracking-tight">
-                Assessment Paused: Full-Screen Exited
-              </h2>
+              <h2 className="text-xl font-bold text-slate-900 tracking-tight">Assessment Paused</h2>
               <p className="text-xs text-slate-600 leading-relaxed">
-                You have exited full-screen mode. This breach has been recorded in your proctoring audit trail. You cannot interact with exam questions until full-screen is restored.
+                Full-screen mode is required to continue. Re-enter full-screen to resume your assessment.
               </p>
             </div>
 
