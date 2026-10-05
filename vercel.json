@@ -3,6 +3,12 @@
   "framework": "express",
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    }
+  ],
   "functions": {
     "server.ts": {
       "includeFiles": [
