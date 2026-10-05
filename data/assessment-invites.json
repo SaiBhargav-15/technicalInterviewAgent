@@ -99,5 +99,13 @@
     "createdAt": "2026-10-01T11:35:38.046Z",
     "expiresAt": "2026-10-02T11:35:38.046Z",
     "claimedAt": "2026-10-01T11:36:01.309Z"
+  },
+  {
+    "inviteId": "aaadc285-5209-4162-a315-61b72b31c247",
+    "candidateName": "test",
+    "email": "test@tes.com",
+    "track": "data_engineering",
+    "createdAt": "2026-10-05T09:48:50.738Z",
+    "expiresAt": "2026-10-06T09:48:50.738Z"
   }
 ]
