@@ -7,11 +7,8 @@
     "server.ts": {
       "includeFiles": [
         "config/recruiter-allowlist.json",
-        "data/*.json",
-        "dist/**"
+        "data/*.json"
       ]
     }
   }
 }
-
- 
