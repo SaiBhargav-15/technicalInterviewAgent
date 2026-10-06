@@ -9,7 +9,7 @@
   ],
   "functions": {
     "api/index.js": {
-      "includeFiles": "{dist/server.cjs,config/recruiter-allowlist.json,data/*.json}"
+      "includeFiles": "{dist/server.cjs,config/recruiter-allowlist.json}"
     }
   }
 }

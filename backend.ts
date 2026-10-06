@@ -1,7 +1,8 @@
-import express from "express";
+import express, { type RequestHandler, type ErrorRequestHandler } from "express";
 import fs from "fs";
 import path from "path";
 import { randomUUID } from "node:crypto";
+import { createNeonStorage, createJsonStorage, StorageConflict, type AssessmentInvite } from "./src/storage";
 import type { AssessmentTrack, ExamQuestion } from "./src/types";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
@@ -47,7 +48,7 @@ app.post("/api/auth/recruiter-login", (req, res) => {
 });
 
 // In-memory candidate interview results store with initial realistic sample candidates
-let candidateResults: any[] = [
+const initialCandidateResults: any[] = [
   {
     id: "cand-101",
     candidateName: "Alex Morgan",
@@ -368,69 +369,42 @@ def normalize_phone_number(phone_raw: str) -> str:
 const ASSESSMENT_DURATION_SECONDS = 30 * 60;
 const DATA_DIRECTORY = path.join(process.cwd(), "data");
 const RECRUITER_ALLOWLIST_FILE = path.join(process.cwd(), "config", "recruiter-allowlist.json");
-const CANDIDATES_FILE = path.join(DATA_DIRECTORY, "candidates.json");
-const SESSIONS_FILE = path.join(DATA_DIRECTORY, "assessment-sessions.json");
-const INVITES_FILE = path.join(DATA_DIRECTORY, "assessment-invites.json");
-
 function readJsonFile<T>(filePath: string, fallback: T): T {
   try {
-    if (fs.existsSync(filePath)) {
-      return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
-    }
-  } catch (error) {
-    console.warn(`Could not read ${filePath}; using fallback data.`, error);
+    if (fs.existsSync(filePath)) return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
+  } catch {
+    console.warn(`Could not read ${filePath}; using fallback data.`);
   }
   return fallback;
 }
 
-function writeJsonFile(filePath: string, value: unknown) {
-  try {
-    fs.mkdirSync(DATA_DIRECTORY, { recursive: true });
-    fs.writeFileSync(filePath, JSON.stringify(value, null, 2), "utf8");
-  } catch (error) {
-    console.error(`Could not persist ${filePath}.`, error);
-  }
+const databaseUrl = process.env.DATABASE_URL;
+// Never use ephemeral JSON storage in a deployed Vercel function.
+const storage = databaseUrl
+  ? createNeonStorage(databaseUrl)
+  : process.env.VERCEL === "1" ? undefined : createJsonStorage(DATA_DIRECTORY, initialCandidateResults);
+
+function getStorage() {
+  if (!storage) throw new Error("DATABASE_URL is required on Vercel.");
+  return storage;
 }
 
-const initialCandidateResults = candidateResults;
-candidateResults = readJsonFile(CANDIDATES_FILE, initialCandidateResults);
-type AssessmentSession = {
-  sessionId: string;
-  candidateEmail: string;
-  inviteId: string;
-  track: AssessmentTrack;
-  startedAt: string;
-  deadlineAt: string;
-  questionIds: string[];
-  submittedAt?: string;
+const asyncRoute = (handler: RequestHandler): RequestHandler => (req, res, next) => {
+  Promise.resolve().then(() => handler(req, res, next)).catch(next);
 };
-type AssessmentInvite = {
-  inviteId: string;
-  candidateName: string;
-  email: string;
-  track: AssessmentTrack;
-  createdAt: string;
-  expiresAt: string;
-  claimedAt?: string;
-  usedAt?: string;
+const storageErrorHandler: ErrorRequestHandler = (error, _req, res, next) => {
+  if (res.headersSent) return next(error);
+  if (error instanceof StorageConflict) return void res.status(409).json({ error: error.message });
+  console.error("Assessment storage request failed.", { code: error?.code || "STORAGE_UNAVAILABLE" });
+  res.status(503).json({ error: "Assessment storage is unavailable. Please try again later." });
 };
-const assessmentInvites = new Map<string, AssessmentInvite>(
-  readJsonFile<AssessmentInvite[]>(INVITES_FILE, []).map((invite) => {
-    const expiresAt = clampInviteExpiry(invite.createdAt, invite.expiresAt);
-    return [invite.inviteId, { ...invite, expiresAt }];
-  })
-);
-writeJsonFile(INVITES_FILE, [...assessmentInvites.values()]);
-const assessmentSessions = new Map<string, AssessmentSession>(
-  readJsonFile<AssessmentSession[]>(SESSIONS_FILE, []).map((session) => [session.sessionId, session])
-);
 
-function getActiveAssessmentSession(sessionId: unknown) {
+async function getActiveAssessmentSession(sessionId: unknown) {
   if (typeof sessionId !== "string" || !sessionId) {
     return { error: "Assessment session is required.", status: 400 } as const;
   }
 
-  const session = assessmentSessions.get(sessionId);
+  const session = await getStorage().getSession(sessionId);
   if (!session) {
     return { error: "Assessment session not found.", status: 404 } as const;
   }
@@ -470,10 +444,6 @@ function loadRecruiterAllowlist(): string[] {
   return Array.isArray(config.allowedEmails)
     ? config.allowedEmails.filter((email): email is string => typeof email === "string")
     : [];
-}
-
-function candidateEmailExists(email: string) {
-  return candidateResults.some((candidate) => normalizeEmail(candidate.candidateEmail) === email);
 }
 
 // Lazy-initialized Gemini AI client
@@ -675,29 +645,30 @@ function computeHeuristicScorecard(
 // -------------------------------------------------------------
 
 // 1. Health check
-app.get("/api/health", (_req, res) => {
+app.get("/api/health", asyncRoute(async (_req, res) => {
   res.json({
     status: "healthy",
     geminiAvailable: !!process.env.GEMINI_API_KEY,
-    activeCandidatesCount: candidateResults.length,
+    storage: getStorage().mode,
+    activeCandidatesCount: (await getStorage().listCandidates()).length,
     timestamp: new Date().toISOString(),
   });
-});
+}));
 
 // 2. Candidate Submissions & Results
-app.get("/api/candidates", (_req, res) => {
-  res.json(candidateResults);
-});
+app.get("/api/candidates", asyncRoute(async (_req, res) => {
+  res.json(await getStorage().listCandidates());
+}));
 
-app.get("/api/candidates/:id", (req, res) => {
-  const candidate = candidateResults.find((c) => c.id === req.params.id);
+app.get("/api/candidates/:id", asyncRoute(async (req, res) => {
+  const candidate = await getStorage().getCandidate(req.params.id);
   if (!candidate) {
     return res.status(404).json({ error: "Candidate not found" });
   }
   res.json(candidate);
-});
+}));
 
-app.post("/api/assessment/invites", (req, res) => {
+app.post("/api/assessment/invites", asyncRoute(async (req, res) => {
   const recruiterEmail = normalizeEmail(req.body?.recruiterEmail);
   if (!recruiterEmail || !isAllowedRecruiterEmail(recruiterEmail, loadRecruiterAllowlist())) {
     return res.status(403).json({ error: "Only an allowlisted recruiter can create assessment invitations." });
@@ -726,21 +697,18 @@ app.post("/api/assessment/invites", (req, res) => {
     createdAt: createdAt.toISOString(),
     expiresAt: new Date(createdAt.getTime() + ASSESSMENT_INVITE_VALIDITY_MS).toISOString(),
   };
-  assessmentInvites.set(inviteId, invite);
-  writeJsonFile(INVITES_FILE, [...assessmentInvites.values()]);
+  await getStorage().saveInvite(invite);
 
   res.status(201).json({
     ...invite,
     inviteUrl: `${req.protocol}://${req.get("host")}/?invite=${inviteId}`,
     questionCount: selectedQuestions.length,
   });
-});
+}));
 
-app.get("/api/assessment/invites/:inviteId", (req, res) => {
-  const invite = assessmentInvites.get(req.params.inviteId);
-  const existingSession = invite && [...assessmentSessions.values()].find(
-    (session) => session.inviteId === invite.inviteId && !session.submittedAt && Date.now() < Date.parse(session.deadlineAt)
-  );
+app.get("/api/assessment/invites/:inviteId", asyncRoute(async (req, res) => {
+  const invite = await getStorage().getInvite(req.params.inviteId);
+  const existingSession = invite && await getStorage().getActiveSessionForInvite(invite.inviteId);
   if (
     !invite ||
     invite.usedAt ||
@@ -756,19 +724,17 @@ app.get("/api/assessment/invites/:inviteId", (req, res) => {
     assessmentTrack: invite.track,
     assessmentLabel: invite.track === "data_stewardship" ? "Data Stewardship" : "Data Engineering",
   });
-});
+}));
 
-app.post("/api/assessment/sessions", (req, res) => {
+app.post("/api/assessment/sessions", asyncRoute(async (req, res) => {
   const candidateEmail = normalizeEmail(req.body?.candidateEmail);
   const inviteId = typeof req.body?.inviteId === "string" ? req.body.inviteId : "";
-  const invite = assessmentInvites.get(inviteId);
+  const invite = await getStorage().getInvite(inviteId);
   if (!candidateEmail || !invite || invite.email !== candidateEmail || invite.usedAt) {
     return res.status(403).json({ error: "A valid unused assessment invitation is required." });
   }
 
-  const existingSession = [...assessmentSessions.values()].find(
-    (session) => session.inviteId === inviteId && !session.submittedAt && Date.now() < Date.parse(session.deadlineAt)
-  );
+  const existingSession = await getStorage().getActiveSessionForInvite(inviteId);
   if (existingSession) {
     return res.status(200).json({
       ...existingSession,
@@ -792,7 +758,7 @@ app.post("/api/assessment/sessions", (req, res) => {
   const startedAt = new Date();
   const deadlineAt = new Date(startedAt.getTime() + ASSESSMENT_DURATION_SECONDS * 1000);
   const session = {
-    sessionId: `assessment-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    sessionId: `assessment-${randomUUID()}`,
     candidateEmail,
     inviteId,
     track: invite.track,
@@ -800,25 +766,21 @@ app.post("/api/assessment/sessions", (req, res) => {
     deadlineAt: deadlineAt.toISOString(),
     questionIds,
   };
-  invite.claimedAt = startedAt.toISOString();
-  assessmentSessions.set(session.sessionId, session);
-  writeJsonFile(SESSIONS_FILE, [...assessmentSessions.values()]);
-  writeJsonFile(INVITES_FILE, [...assessmentInvites.values()]);
-
-  res.status(201).json({
-    ...session,
-    durationSeconds: ASSESSMENT_DURATION_SECONDS,
+  const savedSession = await getStorage().claimInvite(session);
+  res.status(savedSession.sessionId === session.sessionId ? 201 : 200).json({
+    ...savedSession,
+    durationSeconds: Math.max(0, Math.ceil((Date.parse(savedSession.deadlineAt) - Date.now()) / 1000)),
   });
-});
+}));
 
-app.post("/api/assessment/sessions/:sessionId/submit", (req, res) => {
-  const activeSession = getActiveAssessmentSession(req.params.sessionId);
+app.post("/api/assessment/sessions/:sessionId/submit", asyncRoute(async (req, res) => {
+  const activeSession = await getActiveAssessmentSession(req.params.sessionId);
   if ("error" in activeSession) {
     return res.status(activeSession.status ?? 400).json({ error: activeSession.error });
   }
 
   const session = activeSession.session;
-  const invite = assessmentInvites.get(session.inviteId);
+  const invite = await getStorage().getInvite(session.inviteId);
   if (!invite || invite.track !== session.track || invite.email !== session.candidateEmail) {
     return res.status(409).json({ error: "The assessment invitation could not be verified." });
   }
@@ -826,7 +788,7 @@ app.post("/api/assessment/sessions/:sessionId/submit", (req, res) => {
   if (!candidateEmail || candidateEmail !== session.candidateEmail) {
     return res.status(403).json({ error: "Candidate does not match the assessment session." });
   }
-  if (candidateEmailExists(candidateEmail)) {
+  if (await getStorage().candidateEmailExists(candidateEmail)) {
     return res.status(409).json({ error: "An assessment has already been submitted for this email address." });
   }
 
@@ -906,7 +868,7 @@ app.post("/api/assessment/sessions/:sessionId/submit", (req, res) => {
   );
   const difficultyScores = computeDifficultyScores(submissions);
   const newCandidate = {
-    id: `cand-${Date.now().toString().slice(-4)}`,
+    id: `cand-${randomUUID()}`,
     candidateName: invite.candidateName,
     candidateEmail,
     role: invite.track === "data_stewardship" ? "Data Stewardship" : "Data Engineering",
@@ -926,17 +888,12 @@ app.post("/api/assessment/sessions/:sessionId/submit", (req, res) => {
     hrmsTarget: "None",
   };
 
-  session.submittedAt = submittedAt.toISOString();
-  invite.usedAt = submittedAt.toISOString();
-  candidateResults.unshift(newCandidate);
-  writeJsonFile(CANDIDATES_FILE, candidateResults);
-  writeJsonFile(SESSIONS_FILE, [...assessmentSessions.values()]);
-  writeJsonFile(INVITES_FILE, [...assessmentInvites.values()]);
+  await getStorage().submitCandidate(newCandidate, session);
   res.status(201).json(newCandidate);
-});
+}));
 
-app.post("/api/candidates", (req, res) => {
-  const activeSession = getActiveAssessmentSession(req.body?.sessionId);
+app.post("/api/candidates", asyncRoute(async (req, res) => {
+  const activeSession = await getActiveAssessmentSession(req.body?.sessionId);
   if ("error" in activeSession) {
     return res.status(activeSession.status ?? 400).json({ error: activeSession.error });
   }
@@ -945,12 +902,12 @@ app.post("/api/candidates", (req, res) => {
   if (!candidateEmail || candidateEmail !== activeSession.session.candidateEmail) {
     return res.status(403).json({ error: "Candidate does not match the assessment session." });
   }
-  if (candidateEmailExists(candidateEmail)) {
+  if (await getStorage().candidateEmailExists(candidateEmail)) {
     return res.status(409).json({ error: "An assessment has already been submitted for this email address." });
   }
 
   const newCandidate = {
-    id: req.body.id || `cand-${Date.now().toString().slice(-4)}`,
+    id: req.body.id || `cand-${randomUUID()}`,
     candidateName: req.body.candidateName || "Anonymous Candidate",
     candidateEmail,
     role: req.body.role || "L1 Data & MDM Engineer",
@@ -965,12 +922,9 @@ app.post("/api/candidates", (req, res) => {
     hrmsTarget: "None",
   };
 
-  activeSession.session.submittedAt = new Date().toISOString();
-  candidateResults.unshift(newCandidate);
-  writeJsonFile(CANDIDATES_FILE, candidateResults);
-  writeJsonFile(SESSIONS_FILE, [...assessmentSessions.values()]);
+  await getStorage().submitCandidate(newCandidate, activeSession.session);
   res.status(201).json(newCandidate);
-});
+}));
 
 // 3. Real-time AI Code Feedback / Hint Endpoint
 app.post("/api/ai/code-feedback", async (req, res) => {
@@ -1084,9 +1038,9 @@ function generateLocalCodeFeedback(
 }
 
 // 4. Automated Candidate Skill Scoring & Recruiter Synthesis
-app.post("/api/ai/score-assessment", async (req, res) => {
+app.post("/api/ai/score-assessment", asyncRoute(async (req, res) => {
   const { candidateName, submissions, proctoringLog, timeTakenSeconds, sessionId } = req.body;
-  const activeSession = getActiveAssessmentSession(sessionId);
+  const activeSession = await getActiveAssessmentSession(sessionId);
   if ("error" in activeSession) {
     return res.status(activeSession.status ?? 400).json({ error: activeSession.error });
   }
@@ -1101,7 +1055,7 @@ app.post("/api/ai/score-assessment", async (req, res) => {
   );
 
   return res.json(heuristic);
-});
+}));
 
 // KEKA API routes remain unavailable until the integration details are supplied.
 app.post("/api/keka/sync", (_req, res) => {
@@ -1111,6 +1065,8 @@ app.post("/api/keka/sync", (_req, res) => {
 app.post("/api/keka/webhook", (_req, res) => {
   res.status(503).json({ error: "KEKA webhook integration is not configured." });
 });
+
+app.use(storageErrorHandler);
 
 // -------------------------------------------------------------
 // Vite Middleware / Static Serving
@@ -1129,7 +1085,7 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), "dist");
+    const distPath = path.join(process.cwd(), "public");
     app.use(express.static(distPath));
     app.get("*", (_req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
