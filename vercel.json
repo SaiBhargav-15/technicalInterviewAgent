@@ -1,17 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "express",
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/api/(.*)", "destination": "/api/index.js" }
   ],
   "functions": {
-    "server.ts": {
-      "includeFiles": "{config/recruiter-allowlist.json,data/*.json}"
+    "api/index.js": {
+      "includeFiles": "{dist/server.cjs,config/recruiter-allowlist.json,data/*.json}"
     }
   }
 }
